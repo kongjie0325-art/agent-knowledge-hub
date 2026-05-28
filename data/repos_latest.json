@@ -1,0 +1,378 @@
+[
+  {
+    "stars": 172480,
+    "full_name": "ollama/ollama",
+    "language": "Go",
+    "description": "Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+    "url": "https://github.com/ollama/ollama",
+    "category": "inference"
+  },
+  {
+    "stars": 170701,
+    "full_name": "NousResearch/hermes-agent",
+    "language": "Python",
+    "description": "The agent that grows with you",
+    "url": "https://github.com/NousResearch/hermes-agent",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 161013,
+    "full_name": "huggingface/transformers",
+    "language": "Python",
+    "description": "Transformers: model-definition framework for state-of-the-art ML models",
+    "url": "https://github.com/huggingface/transformers",
+    "category": "ml-framework"
+  },
+  {
+    "stars": 142950,
+    "full_name": "langgenius/dify",
+    "language": "TypeScript",
+    "description": "Production-ready platform for agentic workflow development",
+    "url": "https://github.com/langgenius/dify",
+    "category": "agent-platform"
+  },
+  {
+    "stars": 138957,
+    "full_name": "open-webui/open-webui",
+    "language": "Python",
+    "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+    "url": "https://github.com/open-webui/open-webui",
+    "category": "ui-frontend"
+  },
+  {
+    "stars": 138391,
+    "full_name": "x1xhlol/system-prompts-and-models-of-ai-tools",
+    "language": "",
+    "description": "FULL collection of system prompts and models of AI tools",
+    "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+    "category": "prompts"
+  },
+  {
+    "stars": 137836,
+    "full_name": "langchain-ai/langchain",
+    "language": "Python",
+    "description": "The agent engineering platform",
+    "url": "https://github.com/langchain-ai/langchain",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 127139,
+    "full_name": "anthropics/claude-code",
+    "language": "Python",
+    "description": "Claude Code: agentic coding tool that lives in your terminal",
+    "url": "https://github.com/anthropics/claude-code",
+    "category": "coding-agent"
+  },
+  {
+    "stars": 113427,
+    "full_name": "ggerganov/llama.cpp",
+    "language": "C++",
+    "description": "LLM inference in C/C++",
+    "url": "https://github.com/ggerganov/llama.cpp",
+    "category": "inference"
+  },
+  {
+    "stars": 111942,
+    "full_name": "Shubhamsaboo/awesome-llm-apps",
+    "language": "Python",
+    "description": "100+ AI Agent & RAG apps you can actually run",
+    "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+    "category": "awesome-list"
+  },
+  {
+    "stars": 103638,
+    "full_name": "deepseek-ai/DeepSeek-V3",
+    "language": "Python",
+    "description": "DeepSeek V3 model",
+    "url": "https://github.com/deepseek-ai/DeepSeek-V3",
+    "category": "model"
+  },
+  {
+    "stars": 88047,
+    "full_name": "punkpeye/awesome-mcp-servers",
+    "language": "",
+    "description": "A collection of MCP servers",
+    "url": "https://github.com/punkpeye/awesome-mcp-servers",
+    "category": "mcp"
+  },
+  {
+    "stars": 81216,
+    "full_name": "vllm-project/vllm",
+    "language": "Python",
+    "description": "High-throughput and memory-efficient inference engine for LLMs",
+    "url": "https://github.com/vllm-project/vllm",
+    "category": "inference"
+  },
+  {
+    "stars": 77845,
+    "full_name": "lobehub/lobe-chat",
+    "language": "TypeScript",
+    "description": "LobeHub: Chief Agent Operator",
+    "url": "https://github.com/lobehub/lobe-chat",
+    "category": "ui-frontend"
+  },
+  {
+    "stars": 75109,
+    "full_name": "All-Hands-AI/OpenHands",
+    "language": "Python",
+    "description": "OpenHands: AI-Driven Development",
+    "url": "https://github.com/All-Hands-AI/OpenHands",
+    "category": "coding-agent"
+  },
+  {
+    "stars": 73819,
+    "full_name": "openai/openai-cookbook",
+    "language": "Jupyter Notebook",
+    "description": "Examples and guides for using the OpenAI API",
+    "url": "https://github.com/openai/openai-cookbook",
+    "category": "cookbook"
+  },
+  {
+    "stars": 68351,
+    "full_name": "geekan/MetaGPT",
+    "language": "Python",
+    "description": "The Multi-Agent Framework: First AI Software Company",
+    "url": "https://github.com/geekan/MetaGPT",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 65811,
+    "full_name": "microsoft/ai-agents-for-beginners",
+    "language": "Jupyter Notebook",
+    "description": "12 Lessons to Get Started Building AI Agents",
+    "url": "https://github.com/microsoft/ai-agents-for-beginners",
+    "category": "learning"
+  },
+  {
+    "stars": 59437,
+    "full_name": "meta-llama/llama",
+    "language": "Python",
+    "description": "Inference code for Llama models",
+    "url": "https://github.com/meta-llama/llama",
+    "category": "model"
+  },
+  {
+    "stars": 58477,
+    "full_name": "microsoft/autogen",
+    "language": "Python",
+    "description": "A programming framework for agentic AI",
+    "url": "https://github.com/microsoft/autogen",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 54301,
+    "full_name": "karpathy/nanochat",
+    "language": "Python",
+    "description": "The best ChatGPT that $100 can buy",
+    "url": "https://github.com/karpathy/nanochat",
+    "category": "educational"
+  },
+  {
+    "stars": 53145,
+    "full_name": "FlowiseAI/Flowise",
+    "language": "TypeScript",
+    "description": "Build AI Agents, Visually",
+    "url": "https://github.com/FlowiseAI/Flowise",
+    "category": "agent-platform"
+  },
+  {
+    "stars": 52338,
+    "full_name": "crewAIInc/crewAI",
+    "language": "Python",
+    "description": "Framework for orchestrating role-playing, autonomous AI agents",
+    "url": "https://github.com/crewAIInc/crewAI",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 44487,
+    "full_name": "anthropics/anthropic-cookbook",
+    "language": "Jupyter Notebook",
+    "description": "Notebooks/recipes showcasing effective ways of using Claude",
+    "url": "https://github.com/anthropics/anthropic-cookbook",
+    "category": "cookbook"
+  },
+  {
+    "stars": 38098,
+    "full_name": "chatchat-space/Langchain-Chatchat",
+    "language": "Python",
+    "description": "基于 Langchain 与 ChatGLM/Qwen/Llama 的 RAG 与 Agent 框架",
+    "url": "https://github.com/chatchat-space/Langchain-Chatchat",
+    "category": "agent-platform"
+  },
+  {
+    "stars": 36137,
+    "full_name": "reworkd/AgentGPT",
+    "language": "TypeScript",
+    "description": "Assemble, configure, and deploy autonomous AI Agents in your browser",
+    "url": "https://github.com/reworkd/AgentGPT",
+    "category": "agent-platform"
+  },
+  {
+    "stars": 28027,
+    "full_name": "e2b-dev/awesome-ai-agents",
+    "language": "",
+    "description": "A list of AI autonomous agents",
+    "url": "https://github.com/e2b-dev/awesome-ai-agents",
+    "category": "awesome-list"
+  },
+  {
+    "stars": 27996,
+    "full_name": "microsoft/semantic-kernel",
+    "language": "C#",
+    "description": "Integrate cutting-edge LLM technology into your apps",
+    "url": "https://github.com/microsoft/semantic-kernel",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 26869,
+    "full_name": "Hannibal046/Awesome-LLM",
+    "language": "",
+    "description": "Awesome-LLM: a curated list of Large Language Model",
+    "url": "https://github.com/Hannibal046/Awesome-LLM",
+    "category": "awesome-list"
+  },
+  {
+    "stars": 26714,
+    "full_name": "openai/openai-agents-python",
+    "language": "Python",
+    "description": "A lightweight, powerful framework for multi-agent workflows",
+    "url": "https://github.com/openai/openai-agents-python",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 22796,
+    "full_name": "karpathy/nn-zero-to-hero",
+    "language": "Jupyter Notebook",
+    "description": "Neural Networks: Zero to Hero",
+    "url": "https://github.com/karpathy/nn-zero-to-hero",
+    "category": "educational"
+  },
+  {
+    "stars": 22240,
+    "full_name": "NirDiamant/GenAI_Agents",
+    "language": "Jupyter Notebook",
+    "description": "50+ tutorials for Generative AI Agent techniques",
+    "url": "https://github.com/NirDiamant/GenAI_Agents",
+    "category": "learning"
+  },
+  {
+    "stars": 19508,
+    "full_name": "stitionai/devika",
+    "language": "Python",
+    "description": "Devika: first open-source Agentic Software Engineer",
+    "url": "https://github.com/stitionai/devika",
+    "category": "coding-agent"
+  },
+  {
+    "stars": 17541,
+    "full_name": "TransformerOptimus/SuperAGI",
+    "language": "Python",
+    "description": "SuperAGI: A dev-first open source autonomous AI agent framework",
+    "url": "https://github.com/TransformerOptimus/SuperAGI",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 17307,
+    "full_name": "google-gemini/cookbook",
+    "language": "Jupyter Notebook",
+    "description": "Examples and guides for using the Gemini API",
+    "url": "https://github.com/google-gemini/cookbook",
+    "category": "cookbook"
+  },
+  {
+    "stars": 11666,
+    "full_name": "simular-ai/Agent-S",
+    "language": "Python",
+    "description": "Agent S: an open agentic framework that uses computers like a human",
+    "url": "https://github.com/simular-ai/Agent-S",
+    "category": "agent-framework"
+  },
+  {
+    "stars": 10808,
+    "full_name": "mistralai/mistral-inference",
+    "language": "Jupyter Notebook",
+    "description": "Official inference library for Mistral models",
+    "url": "https://github.com/mistralai/mistral-inference",
+    "category": "inference"
+  },
+  {
+    "stars": 6449,
+    "full_name": "punkpeye/awesome-mcp-clients",
+    "language": "",
+    "description": "A collection of MCP clients",
+    "url": "https://github.com/punkpeye/awesome-mcp-clients",
+    "category": "mcp"
+  },
+  {
+    "stars": 5642,
+    "full_name": "ashishps1/learn-ai-engineering",
+    "language": "",
+    "description": "Learn AI and LLMs from scratch using free resources",
+    "url": "https://github.com/ashishps1/learn-ai-engineering",
+    "category": "learning"
+  },
+  {
+    "stars": 5156,
+    "full_name": "ed-donner/agents",
+    "language": "Jupyter Notebook",
+    "description": "Repo for the Complete Agentic AI Engineering Course",
+    "url": "https://github.com/ed-donner/agents",
+    "category": "learning"
+  },
+  {
+    "stars": 4831,
+    "full_name": "xlang-ai/OpenAgents",
+    "language": "Python",
+    "description": "OpenAgents: An Open Platform for Language Agents in the Wild",
+    "url": "https://github.com/xlang-ai/OpenAgents",
+    "category": "agent-platform"
+  },
+  {
+    "stars": 3406,
+    "full_name": "coleam00/ai-agents-masterclass",
+    "language": "Python",
+    "description": "AI Agents Masterclass code",
+    "url": "https://github.com/coleam00/ai-agents-masterclass",
+    "category": "learning"
+  },
+  {
+    "stars": 2717,
+    "full_name": "luo-junyu/Awesome-Agent-Papers",
+    "language": "",
+    "description": "LLM Agent: A Survey on Methodology, Applications and Safety",
+    "url": "https://github.com/luo-junyu/Awesome-Agent-Papers",
+    "category": "awesome-list"
+  },
+  {
+    "stars": 2362,
+    "full_name": "kyrolabs/awesome-agents",
+    "language": "",
+    "description": "Awesome list of AI Agents",
+    "url": "https://github.com/kyrolabs/awesome-agents",
+    "category": "awesome-list"
+  },
+  {
+    "stars": 1774,
+    "full_name": "jim-schwoebel/awesome_ai_agents",
+    "language": "",
+    "description": "1,500+ resources and tools related to AI agents",
+    "url": "https://github.com/jim-schwoebel/awesome_ai_agents",
+    "category": "awesome-list"
+  },
+  {
+    "stars": 976,
+    "full_name": "caramaschiHG/awesome-ai-agents-2026",
+    "language": "",
+    "description": "The most comprehensive list of AI agents, frameworks & tools in 2026",
+    "url": "https://github.com/caramaschiHG/awesome-ai-agents-2026",
+    "category": "awesome-list"
+  },
+  {
+    "stars": 450,
+    "full_name": "gobii-ai/gobii-platform",
+    "language": "Python",
+    "description": "Your easy to use, always-on AI workforce",
+    "url": "https://github.com/gobii-ai/gobii-platform",
+    "category": "agent-platform"
+  }
+]

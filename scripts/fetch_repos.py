@@ -1,68 +1,129 @@
 #!/usr/bin/env python3
-import os, json, time, base64, argparse, csv, requests
+"""
+Agent Knowledge Hub - GitHub 高引用 Agent 仓库自动拉取脚本
+使用 gh CLI 获取数据（避免 GitHub API 限流）
+"""
+import os, json, subprocess, csv, argparse
 from pathlib import Path
 from datetime import datetime
 
+# 高引用 Agent 相关仓库（按分类组织）
 REPOS = [
-    ("swarmclawai/swarmvault", "platform", "P0", "本地优先知识保险库"),
-    ("axoviq-ai/synthadoc", "platform", "P0", "合成文档引擎"),
-    ("Yrzhe/pagefly", "kb", "P0", "页面级知识编译"),
-    ("Astro-Han/karpathy-llm-wiki", "kb", "P0", "Karpathy LLM Wiki"),
-    ("mem0ai/mem0", "memory", "P0", "Agent 长期记忆层"),
-    ("langchain-ai/langmem", "memory", "P0", "LangChain 记忆模块"),
-    ("langchain-ai/langgraph", "kb", "P0", "知识图谱构建"),
-    ("getzep/graphiti", "memory", "P0", "时序知识图谱"),
-    ("getzep/zep", "memory", "P0", "知识图谱平台"),
-    ("toeverything/AFFiNE", "platform", "P1", "开源 Notion 替代"),
-    ("AppFlowy-IO/AppFlowy", "platform", "P1", "开源 Notion 替代"),
-    ("laurent22/joplin", "platform", "P1", "开源笔记应用"),
-    ("TriliumNext/Trilium", "platform", "P1", "层级知识库"),
-    ("requarks/wiki", "platform", "P2", "Wiki.js 维基平台"),
-    ("BookStackApp/BookStack", "platform", "P2", "文档管理平台"),
-    ("MaggieAppleton/awesome-knowledge-management", "meta", "P2", "知识管理awesome"),
+    # Agent Framework
+    ("NousResearch/hermes-agent", "agent-framework", "P0", "The agent that grows with you"),
+    ("langchain-ai/langchain", "agent-framework", "P0", "The agent engineering platform"),
+    ("geekan/MetaGPT", "agent-framework", "P0", "Multi-Agent Framework"),
+    ("microsoft/autogen", "agent-framework", "P0", "Programming framework for agentic AI"),
+    ("crewAIInc/crewAI", "agent-framework", "P0", "Orchestrating role-playing AI agents"),
+    ("microsoft/semantic-kernel", "agent-framework", "P1", "Integrate LLM into apps"),
+    ("openai/openai-agents-python", "agent-framework", "P0", "Multi-agent workflows"),
+    ("TransformerOptimus/SuperAGI", "agent-framework", "P1", "Autonomous AI agent framework"),
+    ("simular-ai/Agent-S", "agent-framework", "P1", "Agentic framework using computers like a human"),
+
+    # Agent Platform
+    ("langgenius/dify", "agent-platform", "P0", "Production-ready agentic workflow platform"),
+    ("FlowiseAI/Flowise", "agent-platform", "P1", "Build AI Agents Visually"),
+    ("chatchat-space/Langchain-Chatchat", "agent-platform", "P1", "RAG and Agent framework (Chinese)"),
+    ("reworkd/AgentGPT", "agent-platform", "P1", "Autonomous AI Agents in browser"),
+    ("xlang-ai/OpenAgents", "agent-platform", "P2", "Open Platform for Language Agents"),
+    ("gobii-ai/gobii-platform", "agent-platform", "P2", "Always-on AI workforce"),
+
+    # Coding Agent
+    ("anthropics/claude-code", "coding-agent", "P0", "Agentic coding tool in terminal"),
+    ("All-Hands-AI/OpenHands", "coding-agent", "P0", "AI-Driven Development"),
+    ("stitionai/devika", "coding-agent", "P1", "Agentic Software Engineer"),
+
+    # Inference & Deployment
+    ("ollama/ollama", "inference", "P0", "Run LLMs locally"),
+    ("ggerganov/llama.cpp", "inference", "P0", "LLM inference in C/C++"),
+    ("vllm-project/vllm", "inference", "P0", "High-throughput LLM inference engine"),
+    ("mistralai/mistral-inference", "inference", "P2", "Mistral inference library"),
+
+    # Model
+    ("deepseek-ai/DeepSeek-V3", "model", "P0", "DeepSeek V3 model"),
+    ("meta-llama/llama", "model", "P1", "Llama inference code"),
+
+    # ML Framework
+    ("huggingface/transformers", "ml-framework", "P0", "State-of-the-art ML model framework"),
+
+    # UI & Frontend
+    ("open-webui/open-webui", "ui-frontend", "P0", "User-friendly AI Interface"),
+    ("lobehub/lobe-chat", "ui-frontend", "P1", "LobeHub Agent Operator"),
+
+    # MCP
+    ("punkpeye/awesome-mcp-servers", "mcp", "P0", "Collection of MCP servers"),
+    ("punkpeye/awesome-mcp-clients", "mcp", "P1", "Collection of MCP clients"),
+
+    # Cookbook
+    ("openai/openai-cookbook", "cookbook", "P0", "OpenAI API examples and guides"),
+    ("anthropics/anthropic-cookbook", "cookbook", "P0", "Claude API recipes"),
+    ("google-gemini/cookbook", "cookbook", "P1", "Gemini API examples"),
+
+    # Awesome List
+    ("Shubhamsaboo/awesome-llm-apps", "awesome-list", "P0", "100+ AI Agent & RAG apps"),
+    ("e2b-dev/awesome-ai-agents", "awesome-list", "P1", "List of AI autonomous agents"),
+    ("Hannibal046/Awesome-LLM", "awesome-list", "P1", "Curated list of LLM resources"),
+    ("luo-junyu/Awesome-Agent-Papers", "awesome-list", "P2", "LLM Agent survey papers"),
+    ("kyrolabs/awesome-agents", "awesome-list", "P2", "Awesome list of AI Agents"),
+    ("jim-schwoebel/awesome_ai_agents", "awesome-list", "P2", "1500+ AI agent resources"),
+    ("caramaschiHG/awesome-ai-agents-2026", "awesome-list", "P2", "AI agents list 2026"),
+
+    # Learning
+    ("microsoft/ai-agents-for-beginners", "learning", "P0", "12 Lessons for AI Agents"),
+    ("NirDiamant/GenAI_Agents", "learning", "P0", "50+ GenAI Agent tutorials"),
+    ("ashishps1/learn-ai-engineering", "learning", "P1", "Learn AI from scratch"),
+    ("ed-donner/agents", "learning", "P1", "Complete Agentic AI Engineering Course"),
+    ("coleam00/ai-agents-masterclass", "learning", "P2", "AI Agents Masterclass"),
+
+    # Educational
+    ("karpathy/nanochat", "educational", "P0", "Best ChatGPT that $100 can buy"),
+    ("karpathy/nn-zero-to-hero", "educational", "P0", "Neural Networks: Zero to Hero"),
+
+    # Prompts & Resources
+    ("x1xhlol/system-prompts-and-models-of-ai-tools", "prompts", "P0", "System prompts collection"),
 ]
 
-GITHUB_API = "https://api.github.com"
-TOKEN = os.environ.get("GITHUB_TOKEN", "")
-
-def get_headers():
-    h = {"Accept": "application/vnd.github.v3+json"}
-    if TOKEN:
-        h["Authorization"] = "token " + TOKEN
-    return h
-
-def fetch_repo_info(owner_repo):
-    url = GITHUB_API + "/repos/" + owner_repo
+def fetch_repo_gh(repo):
+    """使用 gh CLI 获取仓库信息"""
     try:
-        resp = requests.get(url, headers=get_headers(), timeout=15)
-        if resp.status_code == 200:
-            d = resp.json()
+        r = subprocess.run(
+            ["gh", "repo", "view", repo,
+             "--json", "stargazerCount,forkCount,description,primaryLanguage,updatedAt,url,repositoryTopics"],
+            capture_output=True, text=True, timeout=15
+        )
+        if r.returncode == 0:
+            d = json.loads(r.stdout)
             return {
-                "full_name": d["full_name"],
+                "full_name": repo,
                 "description": d.get("description", ""),
-                "html_url": d["html_url"],
-                "language": d.get("language", ""),
-                "stars": d["stargazers_count"],
-                "forks": d["forks_count"],
-                "topics": d.get("topics", []),
-                "license": (d.get("license") or {}).get("spdx_id", ""),
-                "updated_at": d["updated_at"],
+                "url": d.get("url", ""),
+                "language": (d.get("primaryLanguage") or {}).get("name", ""),
+                "stars": d.get("stargazerCount", 0),
+                "forks": d.get("forkCount", 0),
+                "topics": [t["name"] for t in d.get("repositoryTopics", [])],
+                "updated_at": (d.get("updatedAt") or "")[:10],
             }
-        return {"error": "http_" + str(resp.status_code)}
+        return {"full_name": repo, "error": r.stderr.strip()[:100]}
     except Exception as e:
-        return {"error": str(e)}
+        return {"full_name": repo, "error": str(e)[:100]}
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default="data/")
-    parser.add_argument("--delay", type=float, default=1.0)
+    parser = argparse.ArgumentParser(description="Fetch GitHub repo data for Agent Knowledge Hub")
+    parser.add_argument("--output", default="data/", help="Output directory")
+    parser.add_argument("--repos", nargs="*", help="Specific repos to fetch (default: all)")
     args = parser.parse_args()
+
     output_dir = Path(args.output)
     output_dir.mkdir(parents=True, exist_ok=True)
+
+    repos_to_fetch = REPOS
+    if args.repos:
+        repos_to_fetch = [r for r in REPOS if r[0] in args.repos]
+
     results = []
-    for i, (repo, cat, pri, desc) in enumerate(REPOS, 1):
-        print(f"[{i}/{len(REPOS)}] {repo}")
-        info = fetch_repo_info(repo)
+    for i, (repo, cat, pri, desc) in enumerate(repos_to_fetch, 1):
+        print(f"[{i}/{len(repos_to_fetch)}] {repo}")
+        info = fetch_repo_gh(repo)
         info["category"] = cat
         info["priority"] = pri
         info["description"] = desc
@@ -71,19 +132,42 @@ def main():
         else:
             print(f"  {info.get('stars', 0)} stars | {info.get('language', 'N/A')}")
         results.append(info)
-        time.sleep(args.delay)
+
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    (output_dir / f"repos_{ts}.json").write_text(
-        json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
-    fields = ["full_name","description","html_url","language","stars","forks","license","category","priority","topics","updated_at"]
-    with open(output_dir / f"repos_{ts}.csv", "w", newline="", encoding="utf-8") as f:
+
+    # JSON
+    json_path = output_dir / f"repos_{ts}.json"
+    json_path.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    # CSV
+    fields = ["full_name", "description", "url", "language", "stars", "forks",
+              "category", "priority", "topics", "updated_at"]
+    csv_path = output_dir / f"repos_{ts}.csv"
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         for r in results:
             row = {k: r.get(k, "") for k in fields}
             row["topics"] = ", ".join(row.get("topics", []))
             w.writerow(row)
-    print(f"\nDone. {len(results)} repos saved.")
+
+    # Also write latest symlink
+    latest_json = output_dir / "repos_latest.json"
+    latest_csv = output_dir / "repos_latest.csv"
+    latest_json.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
+    with open(latest_csv, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        for r in results:
+            row = {k: r.get(k, "") for k in fields}
+            row["topics"] = ", ".join(row.get("topics", []))
+            w.writerow(row)
+
+    ok = [r for r in results if "error" not in r]
+    total_stars = sum(r.get("stars", 0) for r in ok)
+    print(f"\nDone. {len(ok)}/{len(results)} repos fetched. {total_stars:,} total stars.")
+    print(f"  JSON: {json_path}")
+    print(f"  CSV:  {csv_path}")
 
 if __name__ == "__main__":
     main()

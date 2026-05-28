@@ -1,0 +1,48 @@
+full_name,description,url,language,stars,category
+ollama/ollama,"Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",https://github.com/ollama/ollama,Go,172480,inference
+NousResearch/hermes-agent,The agent that grows with you,https://github.com/NousResearch/hermes-agent,Python,170701,agent-framework
+huggingface/transformers,Transformers: model-definition framework for state-of-the-art ML models,https://github.com/huggingface/transformers,Python,161013,ml-framework
+langgenius/dify,Production-ready platform for agentic workflow development,https://github.com/langgenius/dify,TypeScript,142950,agent-platform
+open-webui/open-webui,"User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",https://github.com/open-webui/open-webui,Python,138957,ui-frontend
+x1xhlol/system-prompts-and-models-of-ai-tools,FULL collection of system prompts and models of AI tools,https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools,,138391,prompts
+langchain-ai/langchain,The agent engineering platform,https://github.com/langchain-ai/langchain,Python,137836,agent-framework
+anthropics/claude-code,Claude Code: agentic coding tool that lives in your terminal,https://github.com/anthropics/claude-code,Python,127139,coding-agent
+ggerganov/llama.cpp,LLM inference in C/C++,https://github.com/ggerganov/llama.cpp,C++,113427,inference
+Shubhamsaboo/awesome-llm-apps,100+ AI Agent & RAG apps you can actually run,https://github.com/Shubhamsaboo/awesome-llm-apps,Python,111942,awesome-list
+deepseek-ai/DeepSeek-V3,DeepSeek V3 model,https://github.com/deepseek-ai/DeepSeek-V3,Python,103638,model
+punkpeye/awesome-mcp-servers,A collection of MCP servers,https://github.com/punkpeye/awesome-mcp-servers,,88047,mcp
+vllm-project/vllm,High-throughput and memory-efficient inference engine for LLMs,https://github.com/vllm-project/vllm,Python,81216,inference
+lobehub/lobe-chat,LobeHub: Chief Agent Operator,https://github.com/lobehub/lobe-chat,TypeScript,77845,ui-frontend
+All-Hands-AI/OpenHands,OpenHands: AI-Driven Development,https://github.com/All-Hands-AI/OpenHands,Python,75109,coding-agent
+openai/openai-cookbook,Examples and guides for using the OpenAI API,https://github.com/openai/openai-cookbook,Jupyter Notebook,73819,cookbook
+geekan/MetaGPT,The Multi-Agent Framework: First AI Software Company,https://github.com/geekan/MetaGPT,Python,68351,agent-framework
+microsoft/ai-agents-for-beginners,12 Lessons to Get Started Building AI Agents,https://github.com/microsoft/ai-agents-for-beginners,Jupyter Notebook,65811,learning
+meta-llama/llama,Inference code for Llama models,https://github.com/meta-llama/llama,Python,59437,model
+microsoft/autogen,A programming framework for agentic AI,https://github.com/microsoft/autogen,Python,58477,agent-framework
+karpathy/nanochat,The best ChatGPT that $100 can buy,https://github.com/karpathy/nanochat,Python,54301,educational
+FlowiseAI/Flowise,"Build AI Agents, Visually",https://github.com/FlowiseAI/Flowise,TypeScript,53145,agent-platform
+crewAIInc/crewAI,"Framework for orchestrating role-playing, autonomous AI agents",https://github.com/crewAIInc/crewAI,Python,52338,agent-framework
+anthropics/anthropic-cookbook,Notebooks/recipes showcasing effective ways of using Claude,https://github.com/anthropics/anthropic-cookbook,Jupyter Notebook,44487,cookbook
+chatchat-space/Langchain-Chatchat,基于 Langchain 与 ChatGLM/Qwen/Llama 的 RAG 与 Agent 框架,https://github.com/chatchat-space/Langchain-Chatchat,Python,38098,agent-platform
+reworkd/AgentGPT,"Assemble, configure, and deploy autonomous AI Agents in your browser",https://github.com/reworkd/AgentGPT,TypeScript,36137,agent-platform
+e2b-dev/awesome-ai-agents,A list of AI autonomous agents,https://github.com/e2b-dev/awesome-ai-agents,,28027,awesome-list
+microsoft/semantic-kernel,Integrate cutting-edge LLM technology into your apps,https://github.com/microsoft/semantic-kernel,C#,27996,agent-framework
+Hannibal046/Awesome-LLM,Awesome-LLM: a curated list of Large Language Model,https://github.com/Hannibal046/Awesome-LLM,,26869,awesome-list
+openai/openai-agents-python,"A lightweight, powerful framework for multi-agent workflows",https://github.com/openai/openai-agents-python,Python,26714,agent-framework
+karpathy/nn-zero-to-hero,Neural Networks: Zero to Hero,https://github.com/karpathy/nn-zero-to-hero,Jupyter Notebook,22796,educational
+NirDiamant/GenAI_Agents,50+ tutorials for Generative AI Agent techniques,https://github.com/NirDiamant/GenAI_Agents,Jupyter Notebook,22240,learning
+stitionai/devika,Devika: first open-source Agentic Software Engineer,https://github.com/stitionai/devika,Python,19508,coding-agent
+TransformerOptimus/SuperAGI,SuperAGI: A dev-first open source autonomous AI agent framework,https://github.com/TransformerOptimus/SuperAGI,Python,17541,agent-framework
+google-gemini/cookbook,Examples and guides for using the Gemini API,https://github.com/google-gemini/cookbook,Jupyter Notebook,17307,cookbook
+simular-ai/Agent-S,Agent S: an open agentic framework that uses computers like a human,https://github.com/simular-ai/Agent-S,Python,11666,agent-framework
+mistralai/mistral-inference,Official inference library for Mistral models,https://github.com/mistralai/mistral-inference,Jupyter Notebook,10808,inference
+punkpeye/awesome-mcp-clients,A collection of MCP clients,https://github.com/punkpeye/awesome-mcp-clients,,6449,mcp
+ashishps1/learn-ai-engineering,Learn AI and LLMs from scratch using free resources,https://github.com/ashishps1/learn-ai-engineering,,5642,learning
+ed-donner/agents,Repo for the Complete Agentic AI Engineering Course,https://github.com/ed-donner/agents,Jupyter Notebook,5156,learning
+xlang-ai/OpenAgents,OpenAgents: An Open Platform for Language Agents in the Wild,https://github.com/xlang-ai/OpenAgents,Python,4831,agent-platform
+coleam00/ai-agents-masterclass,AI Agents Masterclass code,https://github.com/coleam00/ai-agents-masterclass,Python,3406,learning
+luo-junyu/Awesome-Agent-Papers,"LLM Agent: A Survey on Methodology, Applications and Safety",https://github.com/luo-junyu/Awesome-Agent-Papers,,2717,awesome-list
+kyrolabs/awesome-agents,Awesome list of AI Agents,https://github.com/kyrolabs/awesome-agents,,2362,awesome-list
+jim-schwoebel/awesome_ai_agents,"1,500+ resources and tools related to AI agents",https://github.com/jim-schwoebel/awesome_ai_agents,,1774,awesome-list
+caramaschiHG/awesome-ai-agents-2026,"The most comprehensive list of AI agents, frameworks & tools in 2026",https://github.com/caramaschiHG/awesome-ai-agents-2026,,976,awesome-list
+gobii-ai/gobii-platform,"Your easy to use, always-on AI workforce",https://github.com/gobii-ai/gobii-platform,Python,450,agent-platform
