@@ -2,16 +2,23 @@
   "version": "2.0.0",
   "updated": "2026-05-28",
   "description": "Agent Knowledge Hub - 按行业分类的 GitHub 高引用 AI Agent 仓库索引",
-  "total_repos": 0,
-  "total_stars": 0,
-
+  "total_repos": "100+",
+  "total_stars": "2,710,327+",
   "industries": {
     "healthcare": {
       "name": "医疗健康",
       "name_en": "Healthcare",
       "description": "AI Agent 在医疗健康领域的应用：诊断辅助、药物研发、健康管理、医学研究",
       "file": "kb/industry/healthcare.md",
-      "topics": ["medical", "healthcare", "clinical", "diagnosis", "drug-discovery", "ehr", "telemedicine"],
+      "topics": [
+        "medical",
+        "healthcare",
+        "clinical",
+        "diagnosis",
+        "drug-discovery",
+        "ehr",
+        "telemedicine"
+      ],
       "repos": [],
       "sub_categories": {
         "diagnosis": "诊断辅助",
@@ -27,7 +34,15 @@
       "name_en": "Finance",
       "description": "AI Agent 在金融领域的应用：量化交易、风控、合规、智能投顾、保险",
       "file": "kb/industry/finance.md",
-      "topics": ["finance", "trading", "risk", "compliance", "insurance", "fintech", "banking"],
+      "topics": [
+        "finance",
+        "trading",
+        "risk",
+        "compliance",
+        "insurance",
+        "fintech",
+        "banking"
+      ],
       "repos": [],
       "sub_categories": {
         "trading": "量化交易",
@@ -42,7 +57,13 @@
       "name_en": "Legal",
       "description": "AI Agent 在法律领域的应用：合同审查、法律研究、合规检查、案件分析",
       "file": "kb/industry/legal.md",
-      "topics": ["legal", "contract", "compliance", "law", "regulation"],
+      "topics": [
+        "legal",
+        "contract",
+        "compliance",
+        "law",
+        "regulation"
+      ],
       "repos": [],
       "sub_categories": {
         "contract_review": "合同审查",
@@ -56,7 +77,13 @@
       "name_en": "Education",
       "description": "AI Agent 在教育领域的应用：个性化学习、智能辅导、内容生成、评估",
       "file": "kb/industry/education.md",
-      "topics": ["education", "learning", "tutoring", "course", "student"],
+      "topics": [
+        "education",
+        "learning",
+        "tutoring",
+        "course",
+        "student"
+      ],
       "repos": [],
       "sub_categories": {
         "personalized_learning": "个性化学习",
@@ -70,7 +97,13 @@
       "name_en": "Manufacturing",
       "description": "AI Agent 在制造业的应用：质量控制、供应链优化、预测性维护、生产调度",
       "file": "kb/industry/manufacturing.md",
-      "topics": ["manufacturing", "quality", "supply-chain", "maintenance", "industrial"],
+      "topics": [
+        "manufacturing",
+        "quality",
+        "supply-chain",
+        "maintenance",
+        "industrial"
+      ],
       "repos": [],
       "sub_categories": {
         "quality_control": "质量控制",
@@ -84,7 +117,13 @@
       "name_en": "Retail & E-commerce",
       "description": "AI Agent 在零售电商的应用：推荐系统、库存管理、客户服务、价格优化",
       "file": "kb/industry/retail.md",
-      "topics": ["retail", "ecommerce", "recommendation", "inventory", "pricing"],
+      "topics": [
+        "retail",
+        "ecommerce",
+        "recommendation",
+        "inventory",
+        "pricing"
+      ],
       "repos": [],
       "sub_categories": {
         "recommendation": "推荐系统",
@@ -98,7 +137,13 @@
       "name_en": "Marketing",
       "description": "AI Agent 在营销领域的应用：内容创作、广告投放、社媒管理、品牌监控",
       "file": "kb/industry/marketing.md",
-      "topics": ["marketing", "content", "advertising", "social-media", "brand"],
+      "topics": [
+        "marketing",
+        "content",
+        "advertising",
+        "social-media",
+        "brand"
+      ],
       "repos": [],
       "sub_categories": {
         "content_creation": "内容创作",
@@ -112,7 +157,13 @@
       "name_en": "Sales",
       "description": "AI Agent 在销售领域的应用：线索生成、CRM 自动化、销售预测、外呼",
       "file": "kb/industry/sales.md",
-      "topics": ["sales", "crm", "lead-generation", "forecasting", "outbound"],
+      "topics": [
+        "sales",
+        "crm",
+        "lead-generation",
+        "forecasting",
+        "outbound"
+      ],
       "repos": [],
       "sub_categories": {
         "lead_generation": "线索生成",
@@ -126,7 +177,13 @@
       "name_en": "Customer Service",
       "description": "AI Agent 在客服领域的应用：智能客服、工单处理、知识库、多语言支持",
       "file": "kb/industry/customer-service.md",
-      "topics": ["customer-service", "support", "ticketing", "chatbot", "knowledge-base"],
+      "topics": [
+        "customer-service",
+        "support",
+        "ticketing",
+        "chatbot",
+        "knowledge-base"
+      ],
       "repos": [],
       "sub_categories": {
         "intelligent_chatbot": "智能客服",
@@ -140,7 +197,13 @@
       "name_en": "Security & Compliance",
       "description": "AI Agent 在安全领域的应用：威胁检测、漏洞扫描、合规审计、身份认证",
       "file": "kb/industry/security.md",
-      "topics": ["security", "threat", "vulnerability", "compliance", "identity"],
+      "topics": [
+        "security",
+        "threat",
+        "vulnerability",
+        "compliance",
+        "identity"
+      ],
       "repos": [],
       "sub_categories": {
         "threat_detection": "威胁检测",
@@ -154,7 +217,13 @@
       "name_en": "Agriculture",
       "description": "AI Agent 在农业领域的应用：精准农业、作物监测、病虫害识别、供应链",
       "file": "kb/industry/agriculture.md",
-      "topics": ["agriculture", "farming", "crop", "pest", "precision"],
+      "topics": [
+        "agriculture",
+        "farming",
+        "crop",
+        "pest",
+        "precision"
+      ],
       "repos": [],
       "sub_categories": {
         "precision_agriculture": "精准农业",
@@ -168,7 +237,13 @@
       "name_en": "Energy",
       "description": "AI Agent 在能源领域的应用：智能电网、能源优化、碳排放管理、预测性维护",
       "file": "kb/industry/energy.md",
-      "topics": ["energy", "grid", "carbon", "renewable", "optimization"],
+      "topics": [
+        "energy",
+        "grid",
+        "carbon",
+        "renewable",
+        "optimization"
+      ],
       "repos": [],
       "sub_categories": {
         "smart_grid": "智能电网",
@@ -182,7 +257,13 @@
       "name_en": "Government & Public",
       "description": "AI Agent 在政府公共领域的应用：政务服务、公共安全、城市规划、税务",
       "file": "kb/industry/government.md",
-      "topics": ["government", "public", "safety", "urban", "tax"],
+      "topics": [
+        "government",
+        "public",
+        "safety",
+        "urban",
+        "tax"
+      ],
       "repos": [],
       "sub_categories": {
         "government_services": "政务服务",
@@ -196,7 +277,13 @@
       "name_en": "Scientific Research",
       "description": "AI Agent 在科研领域的应用：文献综述、实验设计、数据分析、论文写作",
       "file": "kb/industry/research.md",
-      "topics": ["research", "science", "paper", "experiment", "data-analysis"],
+      "topics": [
+        "research",
+        "science",
+        "paper",
+        "experiment",
+        "data-analysis"
+      ],
       "repos": [],
       "sub_categories": {
         "literature_review": "文献综述",
@@ -210,7 +297,13 @@
       "name_en": "Real Estate",
       "description": "AI Agent 在房地产领域的应用：房产评估、市场分析、智能客服、物业管理",
       "file": "kb/industry/real-estate.md",
-      "topics": ["real-estate", "property", "valuation", "market", "management"],
+      "topics": [
+        "real-estate",
+        "property",
+        "valuation",
+        "market",
+        "management"
+      ],
       "repos": [],
       "sub_categories": {
         "property_valuation": "房产评估",
@@ -224,7 +317,13 @@
       "name_en": "Entertainment & Media",
       "description": "AI Agent 在娱乐媒体领域的应用：内容生成、推荐、版权管理、互动体验",
       "file": "kb/industry/entertainment.md",
-      "topics": ["entertainment", "media", "content", "recommendation", "copyright"],
+      "topics": [
+        "entertainment",
+        "media",
+        "content",
+        "recommendation",
+        "copyright"
+      ],
       "repos": [],
       "sub_categories": {
         "content_generation": "内容生成",
@@ -238,7 +337,13 @@
       "name_en": "Logistics & Transportation",
       "description": "AI Agent 在物流运输领域的应用：路径优化、仓储管理、车队管理、最后一公里",
       "file": "kb/industry/logistics.md",
-      "topics": ["logistics", "transportation", "warehouse", "routing", "fleet"],
+      "topics": [
+        "logistics",
+        "transportation",
+        "warehouse",
+        "routing",
+        "fleet"
+      ],
       "repos": [],
       "sub_categories": {
         "route_optimization": "路径优化",
@@ -252,7 +357,13 @@
       "name_en": "Human Resources",
       "description": "AI Agent 在 HR 领域的应用：招聘、培训、绩效评估、员工服务",
       "file": "kb/industry/human-resources.md",
-      "topics": ["hr", "recruitment", "training", "performance", "employee"],
+      "topics": [
+        "hr",
+        "recruitment",
+        "training",
+        "performance",
+        "employee"
+      ],
       "repos": [],
       "sub_categories": {
         "recruitment": "智能招聘",
@@ -266,7 +377,13 @@
       "name_en": "Insurance",
       "description": "AI Agent 在保险领域的应用：理赔处理、风险评估、保单管理、欺诈检测",
       "file": "kb/industry/insurance.md",
-      "topics": ["insurance", "claim", "risk", "policy", "fraud"],
+      "topics": [
+        "insurance",
+        "claim",
+        "risk",
+        "policy",
+        "fraud"
+      ],
       "repos": [],
       "sub_categories": {
         "claim_processing": "理赔处理",
@@ -274,16 +391,458 @@
         "policy_management": "保单管理",
         "fraud_detection": "欺诈检测"
       }
+    },
+    "chemistry": {
+      "name": "化学",
+      "name_en": "Chemistry",
+      "description": "AI Agent 在化学领域的应用：分子设计、反应预测、合成规划、材料发现",
+      "file": "kb/industry/chemistry.md",
+      "topics": [
+        "chemistry",
+        "molecular",
+        "synthesis",
+        "drug-discovery"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "molecular_design": "分子设计",
+        "reaction_prediction": "反应预测",
+        "synthesis_planning": "合成规划",
+        "computational_chemistry": "计算化学",
+        "lab_automation": "实验室自动化"
+      }
+    },
+    "biology": {
+      "name": "生物学",
+      "name_en": "Biology",
+      "description": "AI Agent 在生物学领域的应用：基因组学、蛋白质组学、生物信息学、合成生物学",
+      "file": "kb/industry/biology.md",
+      "topics": [
+        "biology",
+        "genomics",
+        "proteomics",
+        "bioinformatics"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "genomics": "基因组学",
+        "proteomics": "蛋白质组学",
+        "bioinformatics": "生物信息学",
+        "synthetic_biology": "合成生物学",
+        "ecology": "生态学"
+      }
+    },
+    "materials-science": {
+      "name": "材料科学",
+      "name_en": "Materials Science",
+      "description": "AI Agent 在材料科学领域的应用：材料发现、性能预测、晶体结构分析",
+      "file": "kb/industry/materials-science.md",
+      "topics": [
+        "materials",
+        "crystal",
+        "alloy",
+        "polymer",
+        "nanomaterial"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "material_discovery": "材料发现",
+        "property_prediction": "性能预测",
+        "crystal_structure": "晶体结构",
+        "computational_materials": "计算材料学",
+        "characterization": "材料表征"
+      }
+    },
+    "environmental-science": {
+      "name": "环境科学",
+      "name_en": "Environmental Science",
+      "description": "AI Agent 在环境科学领域的应用：气候建模、污染监测、生态保护、可持续发展",
+      "file": "kb/industry/environmental-science.md",
+      "topics": [
+        "environment",
+        "climate",
+        "pollution",
+        "ecology",
+        "sustainability"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "climate": "气候与气象",
+        "pollution": "污染监测",
+        "ecology": "生态保护",
+        "sustainability": "可持续发展",
+        "carbon": "碳排放追踪"
+      }
+    },
+    "computer-science": {
+      "name": "计算机科学",
+      "name_en": "Computer Science",
+      "description": "AI Agent 在计算机科学领域的应用：算法设计、代码生成、系统优化、理论研究",
+      "file": "kb/industry/computer-science.md",
+      "topics": [
+        "computer-science",
+        "algorithms",
+        "code-generation",
+        "systems"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "algorithms": "算法设计",
+        "code_generation": "代码生成",
+        "system_design": "系统设计",
+        "theory": "理论研究",
+        "security": "计算机安全"
+      }
+    },
+    "software-engineering": {
+      "name": "软件工程",
+      "name_en": "Software Engineering",
+      "description": "AI Agent 在软件工程领域的应用：代码审查、测试自动化、项目管理、DevOps",
+      "file": "kb/industry/software-engineering.md",
+      "topics": [
+        "software-engineering",
+        "code-review",
+        "testing",
+        "devops",
+        "ci-cd"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "code_review": "代码审查",
+        "testing": "测试自动化",
+        "project_management": "项目管理",
+        "devops": "DevOps",
+        "architecture": "软件架构"
+      }
+    },
+    "web-development": {
+      "name": "Web开发",
+      "name_en": "Web Development",
+      "description": "AI Agent 在Web开发领域的应用：前端开发、后端开发、全栈开发、UI/UX",
+      "file": "kb/industry/web-development.md",
+      "topics": [
+        "web",
+        "frontend",
+        "backend",
+        "fullstack",
+        "ui-ux"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "frontend": "前端开发",
+        "backend": "后端开发",
+        "fullstack": "全栈开发",
+        "ui_ux": "UI/UX设计",
+        "web_security": "Web安全"
+      }
+    },
+    "network-engineering": {
+      "name": "网络工程",
+      "name_en": "Network Engineering",
+      "description": "AI Agent 在网络工程领域的应用：网络自动化、监控、安全、配置管理",
+      "file": "kb/industry/network-engineering.md",
+      "topics": [
+        "network",
+        "automation",
+        "monitoring",
+        "security",
+        "routing"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "automation": "网络自动化",
+        "monitoring": "网络监控",
+        "security": "网络安全",
+        "configuration": "配置管理",
+        "troubleshooting": "故障诊断"
+      }
+    },
+    "information-engineering": {
+      "name": "信息工程",
+      "name_en": "Information Engineering",
+      "description": "AI Agent 在信息工程领域的应用：数据管理、知识图谱、信息检索、语义分析",
+      "file": "kb/industry/information-engineering.md",
+      "topics": [
+        "information",
+        "data-management",
+        "knowledge-graph",
+        "search",
+        "semantics"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "data_management": "数据管理",
+        "knowledge_graph": "知识图谱",
+        "information_retrieval": "信息检索",
+        "semantic_analysis": "语义分析",
+        "data_integration": "数据集成"
+      }
+    },
+    "civil-engineering": {
+      "name": "土木工程",
+      "name_en": "Civil Engineering",
+      "description": "AI Agent 在土木工程领域的应用：结构设计、施工管理、质量检测、基础设施",
+      "file": "kb/industry/civil-engineering.md",
+      "topics": [
+        "civil-engineering",
+        "construction",
+        "structural",
+        "infrastructure",
+        "bim"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "structural_design": "结构设计",
+        "construction_management": "施工管理",
+        "quality_inspection": "质量检测",
+        "infrastructure": "基础设施",
+        "bim": "BIM建模"
+      }
+    },
+    "mechanical-engineering": {
+      "name": "机械工程",
+      "name_en": "Mechanical Engineering",
+      "description": "AI Agent 在机械工程领域的应用：CAD设计、制造工艺、设备维护、仿真分析",
+      "file": "kb/industry/mechanical-engineering.md",
+      "topics": [
+        "mechanical",
+        "cad",
+        "manufacturing",
+        "maintenance",
+        "simulation"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "cad_design": "CAD设计",
+        "manufacturing": "制造工艺",
+        "predictive_maintenance": "预测性维护",
+        "simulation": "仿真分析",
+        "robotics": "机器人"
+      }
+    },
+    "electrical-engineering": {
+      "name": "电气工程",
+      "name_en": "Electrical Engineering",
+      "description": "AI Agent 在电气工程领域的应用：电路设计、电力系统、嵌入式系统、芯片设计",
+      "file": "kb/industry/electrical-engineering.md",
+      "topics": [
+        "electrical",
+        "circuit",
+        "power-systems",
+        "embedded",
+        "chip-design"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "circuit_design": "电路设计",
+        "power_systems": "电力系统",
+        "embedded_systems": "嵌入式系统",
+        "chip_design": "芯片设计",
+        "signal_processing": "信号处理"
+      }
+    },
+    "chemical-engineering": {
+      "name": "化学工程",
+      "name_en": "Chemical Engineering",
+      "description": "AI Agent 在化学工程领域的应用：过程优化、反应器设计、分离技术、安全评估",
+      "file": "kb/industry/chemical-engineering.md",
+      "topics": [
+        "chemical-engineering",
+        "process-optimization",
+        "reactor",
+        "separation",
+        "safety"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "process_optimization": "过程优化",
+        "reactor_design": "反应器设计",
+        "separation": "分离技术",
+        "safety_assessment": "安全评估",
+        "process_control": "过程控制"
+      }
+    },
+    "aerospace": {
+      "name": "航空航天",
+      "name_en": "Aerospace",
+      "description": "AI Agent 在航空航天领域的应用：飞行控制、轨道计算、结构设计、任务规划",
+      "file": "kb/industry/aerospace.md",
+      "topics": [
+        "aerospace",
+        "flight-control",
+        "orbital",
+        "mission-planning",
+        "uav"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "flight_control": "飞行控制",
+        "orbital_mechanics": "轨道力学",
+        "structural_design": "结构设计",
+        "mission_planning": "任务规划",
+        "uav": "无人机"
+      }
+    },
+    "automotive": {
+      "name": "汽车工程",
+      "name_en": "Automotive",
+      "description": "AI Agent 在汽车工程领域的应用：自动驾驶、车载系统、动力总成、质量控制",
+      "file": "kb/industry/automotive.md",
+      "topics": [
+        "automotive",
+        "autonomous-driving",
+        "adas",
+        "powertrain",
+        "quality"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "autonomous_driving": "自动驾驶",
+        "adas": "高级驾驶辅助",
+        "powertrain": "动力总成",
+        "quality_control": "质量控制",
+        "in_vehicle_infotainment": "车载信息娱乐"
+      }
+    },
+    "food-beverage": {
+      "name": "食品饮料",
+      "name_en": "Food & Beverage",
+      "description": "AI Agent 在食品饮料领域的应用：配方优化、质量控制、供应链管理、食品安全",
+      "file": "kb/industry/food-beverage.md",
+      "topics": [
+        "food",
+        "beverage",
+        "recipe",
+        "quality",
+        "supply-chain"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "recipe_optimization": "配方优化",
+        "quality_control": "质量控制",
+        "supply_chain": "供应链管理",
+        "food_safety": "食品安全",
+        "flavor_analysis": "风味分析"
+      }
+    },
+    "textile-fashion": {
+      "name": "纺织服装",
+      "name_en": "Textile & Fashion",
+      "description": "AI Agent 在纺织服装领域的应用：设计辅助、生产优化、质量检测、时尚推荐",
+      "file": "kb/industry/textile-fashion.md",
+      "topics": [
+        "textile",
+        "fashion",
+        "design",
+        "production",
+        "quality"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "design_assistance": "设计辅助",
+        "production_optimization": "生产优化",
+        "quality_inspection": "质量检测",
+        "fashion_recommendation": "时尚推荐",
+        "supply_chain": "供应链"
+      }
+    },
+    "mining-metallurgy": {
+      "name": "矿业冶金",
+      "name_en": "Mining & Metallurgy",
+      "description": "AI Agent 在矿业冶金领域的应用：勘探优化、矿石加工、安全监控、环境修复",
+      "file": "kb/industry/mining-metallurgy.md",
+      "topics": [
+        "mining",
+        "metallurgy",
+        "exploration",
+        "processing",
+        "safety"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "exploration": "勘探优化",
+        "ore_processing": "矿石加工",
+        "safety_monitoring": "安全监控",
+        "environmental_remediation": "环境修复",
+        "process_optimization": "工艺优化"
+      }
+    },
+    "military-defense": {
+      "name": "军事国防",
+      "name_en": "Military & Defense",
+      "description": "AI Agent 在军事国防领域的应用：情报分析、网络安全、任务规划、模拟训练",
+      "file": "kb/industry/military-defense.md",
+      "topics": [
+        "military",
+        "defense",
+        "intelligence",
+        "cybersecurity",
+        "simulation"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "intelligence_analysis": "情报分析",
+        "cybersecurity": "网络安全",
+        "mission_planning": "任务规划",
+        "simulation": "模拟训练",
+        "logistics": "军事后勤"
+      }
+    },
+    "sports-fitness": {
+      "name": "体育健身",
+      "name_en": "Sports & Fitness",
+      "description": "AI Agent 在体育健身领域的应用：运动分析、训练计划、伤病预防、赛事分析",
+      "file": "kb/industry/sports-fitness.md",
+      "topics": [
+        "sports",
+        "fitness",
+        "training",
+        "injury-prevention",
+        "analytics"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "motion_analysis": "运动分析",
+        "training_plan": "训练计划",
+        "injury_prevention": "伤病预防",
+        "event_analysis": "赛事分析",
+        "performance_tracking": "表现追踪"
+      }
+    },
+    "tourism-hospitality": {
+      "name": "旅游酒店",
+      "name_en": "Tourism & Hospitality",
+      "description": "AI Agent 在旅游酒店领域的应用：行程规划、酒店运营、客户服务、内容生成",
+      "file": "kb/industry/tourism-hospitality.md",
+      "topics": [
+        "tourism",
+        "hospitality",
+        "travel",
+        "hotel",
+        "customer-service"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "trip_planning": "智能行程规划",
+        "hotel_operations": "酒店运营",
+        "customer_service": "客户服务",
+        "content_generation": "内容生成",
+        "recommendation": "推荐系统"
+      }
     }
   },
-
   "capabilities": {
     "agent-framework": {
       "name": "Agent 框架",
       "name_en": "Agent Framework",
       "description": "构建 AI Agent 的核心框架和工具链",
       "file": "kb/capability/agent-framework.md",
-      "topics": ["agent", "framework", "llm", "multi-agent"],
+      "topics": [
+        "agent",
+        "framework",
+        "llm",
+        "multi-agent"
+      ],
       "repos": []
     },
     "agent-platform": {
@@ -291,7 +850,11 @@
       "name_en": "Agent Platform",
       "description": "生产级 Agent 开发和部署平台",
       "file": "kb/capability/agent-platform.md",
-      "topics": ["platform", "workflow", "deployment"],
+      "topics": [
+        "platform",
+        "workflow",
+        "deployment"
+      ],
       "repos": []
     },
     "coding-agent": {
@@ -299,7 +862,11 @@
       "name_en": "Coding Agent",
       "description": "AI 编程助手和自主编码 Agent",
       "file": "kb/capability/coding-agent.md",
-      "topics": ["coding", "developer", "autonomous"],
+      "topics": [
+        "coding",
+        "developer",
+        "autonomous"
+      ],
       "repos": []
     },
     "inference": {
@@ -307,7 +874,12 @@
       "name_en": "Inference & Deployment",
       "description": "LLM 推理优化和部署方案",
       "file": "kb/capability/inference.md",
-      "topics": ["inference", "deployment", "serving", "optimization"],
+      "topics": [
+        "inference",
+        "deployment",
+        "serving",
+        "optimization"
+      ],
       "repos": []
     },
     "model": {
@@ -315,7 +887,11 @@
       "name_en": "Foundation Model",
       "description": "开源和闭源基础大模型",
       "file": "kb/capability/model.md",
-      "topics": ["model", "llm", "foundation"],
+      "topics": [
+        "model",
+        "llm",
+        "foundation"
+      ],
       "repos": []
     },
     "mcp": {
@@ -323,7 +899,12 @@
       "name_en": "MCP Ecosystem",
       "description": "Model Context Protocol 相关工具和生态",
       "file": "kb/capability/mcp.md",
-      "topics": ["mcp", "protocol", "tool", "integration"],
+      "topics": [
+        "mcp",
+        "protocol",
+        "tool",
+        "integration"
+      ],
       "repos": []
     },
     "ui-frontend": {
@@ -331,7 +912,12 @@
       "name_en": "UI & Frontend",
       "description": "AI Agent 用户界面和前端工具",
       "file": "kb/capability/ui-frontend.md",
-      "topics": ["ui", "frontend", "interface", "chat"],
+      "topics": [
+        "ui",
+        "frontend",
+        "interface",
+        "chat"
+      ],
       "repos": []
     },
     "awesome-list": {
@@ -339,7 +925,12 @@
       "name_en": "Awesome Lists",
       "description": "AI Agent 相关的精选资源列表",
       "file": "kb/capability/awesome-list.md",
-      "topics": ["awesome", "list", "curated", "resources"],
+      "topics": [
+        "awesome",
+        "list",
+        "curated",
+        "resources"
+      ],
       "repos": []
     },
     "cookbook": {
@@ -347,7 +938,12 @@
       "name_en": "Cookbooks",
       "description": "各大模型的官方示例和指南",
       "file": "kb/capability/cookbook.md",
-      "topics": ["cookbook", "examples", "guide", "tutorial"],
+      "topics": [
+        "cookbook",
+        "examples",
+        "guide",
+        "tutorial"
+      ],
       "repos": []
     },
     "learning": {
@@ -355,11 +951,15 @@
       "name_en": "Learning Resources",
       "description": "AI Agent 学习教程和课程",
       "file": "kb/capability/learning.md",
-      "topics": ["learning", "tutorial", "course", "education"],
+      "topics": [
+        "learning",
+        "tutorial",
+        "course",
+        "education"
+      ],
       "repos": []
     }
   },
-
   "hermes_api": {
     "description": "Hermes Agent 调用此知识库的 API 接口说明",
     "endpoints": {
@@ -384,7 +984,6 @@
       "获取 ollama/ollama 的详细信息"
     ]
   },
-
   "metadata": {
     "maintainer": "Hermes Agent",
     "license": "MIT",
