@@ -1,86 +1,96 @@
 #!/usr/bin/env python3
 """
-Agent Knowledge Hub - GitHub 高引用 Agent 仓库自动拉取脚本
+Agent Knowledge Hub - GitHub 仓库自动拉取脚本
+支持按行业 (industry) 和能力 (capability) 双维度分类
 使用 gh CLI 获取数据（避免 GitHub API 限流）
 """
 import os, json, subprocess, csv, argparse
 from pathlib import Path
 from datetime import datetime
 
-# 高引用 Agent 相关仓库（按分类组织）
+# 仓库清单：支持 industry 和 capability 双维度分类
+# 格式: (owner/repo, category, priority, description, [industries], [capabilities])
 REPOS = [
-    # Agent Framework
-    ("NousResearch/hermes-agent", "agent-framework", "P0", "The agent that grows with you"),
-    ("langchain-ai/langchain", "agent-framework", "P0", "The agent engineering platform"),
-    ("geekan/MetaGPT", "agent-framework", "P0", "Multi-Agent Framework"),
-    ("microsoft/autogen", "agent-framework", "P0", "Programming framework for agentic AI"),
-    ("crewAIInc/crewAI", "agent-framework", "P0", "Orchestrating role-playing AI agents"),
-    ("microsoft/semantic-kernel", "agent-framework", "P1", "Integrate LLM into apps"),
-    ("openai/openai-agents-python", "agent-framework", "P0", "Multi-agent workflows"),
-    ("TransformerOptimus/SuperAGI", "agent-framework", "P1", "Autonomous AI agent framework"),
-    ("simular-ai/Agent-S", "agent-framework", "P1", "Agentic framework using computers like a human"),
+    # === Agent Framework ===
+    ("NousResearch/hermes-agent", "capability", "P0", "The agent that grows with you", [], ["agent-framework"]),
+    ("langchain-ai/langchain", "capability", "P0", "The agent engineering platform", [], ["agent-framework"]),
+    ("geekan/MetaGPT", "capability", "P0", "Multi-Agent Framework", [], ["agent-framework"]),
+    ("microsoft/autogen", "capability", "P0", "Programming framework for agentic AI", [], ["agent-framework"]),
+    ("crewAIInc/crewAI", "capability", "P0", "Orchestrating role-playing AI agents", [], ["agent-framework"]),
+    ("microsoft/semantic-kernel", "capability", "P1", "Integrate LLM into apps", [], ["agent-framework"]),
+    ("openai/openai-agents-python", "capability", "P0", "Multi-agent workflows", [], ["agent-framework"]),
+    ("TransformerOptimus/SuperAGI", "capability", "P1", "Autonomous AI agent framework", [], ["agent-framework"]),
+    ("simular-ai/Agent-S", "capability", "P1", "Agentic framework using computers like a human", ["healthcare"], ["agent-framework"]),
 
-    # Agent Platform
-    ("langgenius/dify", "agent-platform", "P0", "Production-ready agentic workflow platform"),
-    ("FlowiseAI/Flowise", "agent-platform", "P1", "Build AI Agents Visually"),
-    ("chatchat-space/Langchain-Chatchat", "agent-platform", "P1", "RAG and Agent framework (Chinese)"),
-    ("reworkd/AgentGPT", "agent-platform", "P1", "Autonomous AI Agents in browser"),
-    ("xlang-ai/OpenAgents", "agent-platform", "P2", "Open Platform for Language Agents"),
-    ("gobii-ai/gobii-platform", "agent-platform", "P2", "Always-on AI workforce"),
+    # === Agent Platform ===
+    ("langgenius/dify", "capability", "P0", "Production-ready agentic workflow platform", [], ["agent-platform"]),
+    ("FlowiseAI/Flowise", "capability", "P1", "Build AI Agents Visually", [], ["agent-platform"]),
+    ("chatchat-space/Langchain-Chatchat", "capability", "P1", "RAG and Agent framework (Chinese)", [], ["agent-platform"]),
+    ("reworkd/AgentGPT", "capability", "P1", "Autonomous AI Agents in browser", [], ["agent-platform"]),
+    ("xlang-ai/OpenAgents", "capability", "P2", "Open Platform for Language Agents", [], ["agent-platform"]),
+    ("gobii-ai/gobii-platform", "capability", "P2", "Always-on AI workforce", [], ["agent-platform"]),
 
-    # Coding Agent
-    ("anthropics/claude-code", "coding-agent", "P0", "Agentic coding tool in terminal"),
-    ("All-Hands-AI/OpenHands", "coding-agent", "P0", "AI-Driven Development"),
-    ("stitionai/devika", "coding-agent", "P1", "Agentic Software Engineer"),
+    # === Coding Agent ===
+    ("anthropics/claude-code", "capability", "P0", "Agentic coding tool in terminal", [], ["coding-agent"]),
+    ("All-Hands-AI/OpenHands", "capability", "P0", "AI-Driven Development", [], ["coding-agent"]),
+    ("stitionai/devika", "capability", "P1", "Agentic Software Engineer", [], ["coding-agent"]),
 
-    # Inference & Deployment
-    ("ollama/ollama", "inference", "P0", "Run LLMs locally"),
-    ("ggerganov/llama.cpp", "inference", "P0", "LLM inference in C/C++"),
-    ("vllm-project/vllm", "inference", "P0", "High-throughput LLM inference engine"),
-    ("mistralai/mistral-inference", "inference", "P2", "Mistral inference library"),
+    # === Inference ===
+    ("ollama/ollama", "capability", "P0", "Run LLMs locally", [], ["inference"]),
+    ("ggerganov/llama.cpp", "capability", "P0", "LLM inference in C/C++", [], ["inference"]),
+    ("vllm-project/vllm", "capability", "P0", "High-throughput LLM inference engine", [], ["inference"]),
+    ("mistralai/mistral-inference", "capability", "P2", "Mistral inference library", [], ["inference"]),
 
-    # Model
-    ("deepseek-ai/DeepSeek-V3", "model", "P0", "DeepSeek V3 model"),
-    ("meta-llama/llama", "model", "P1", "Llama inference code"),
+    # === Model ===
+    ("deepseek-ai/DeepSeek-V3", "capability", "P0", "DeepSeek V3 model", [], ["model"]),
+    ("meta-llama/llama", "capability", "P1", "Llama inference code", [], ["model"]),
+    ("huggingface/transformers", "capability", "P0", "State-of-the-art ML model framework", [], ["model"]),
 
-    # ML Framework
-    ("huggingface/transformers", "ml-framework", "P0", "State-of-the-art ML model framework"),
+    # === MCP ===
+    ("punkpeye/awesome-mcp-servers", "capability", "P0", "Collection of MCP servers", [], ["mcp"]),
+    ("punkpeye/awesome-mcp-clients", "capability", "P1", "Collection of MCP clients", [], ["mcp"]),
 
-    # UI & Frontend
-    ("open-webui/open-webui", "ui-frontend", "P0", "User-friendly AI Interface"),
-    ("lobehub/lobe-chat", "ui-frontend", "P1", "LobeHub Agent Operator"),
+    # === UI/Frontend ===
+    ("open-webui/open-webui", "capability", "P0", "User-friendly AI Interface", [], ["ui-frontend"]),
+    ("lobehub/lobe-chat", "capability", "P1", "LobeHub Agent Operator", [], ["ui-frontend"]),
 
-    # MCP
-    ("punkpeye/awesome-mcp-servers", "mcp", "P0", "Collection of MCP servers"),
-    ("punkpeye/awesome-mcp-clients", "mcp", "P1", "Collection of MCP clients"),
+    # === Cookbook ===
+    ("openai/openai-cookbook", "capability", "P0", "OpenAI API examples and guides", [], ["cookbook"]),
+    ("anthropics/anthropic-cookbook", "capability", "P0", "Claude API recipes", [], ["cookbook"]),
+    ("google-gemini/cookbook", "capability", "P1", "Gemini API examples", [], ["cookbook"]),
 
-    # Cookbook
-    ("openai/openai-cookbook", "cookbook", "P0", "OpenAI API examples and guides"),
-    ("anthropics/anthropic-cookbook", "cookbook", "P0", "Claude API recipes"),
-    ("google-gemini/cookbook", "cookbook", "P1", "Gemini API examples"),
+    # === Awesome List ===
+    ("Shubhamsaboo/awesome-llm-apps", "capability", "P0", "100+ AI Agent & RAG apps", [], ["awesome-list"]),
+    ("e2b-dev/awesome-ai-agents", "capability", "P1", "List of AI autonomous agents", [], ["awesome-list"]),
+    ("Hannibal046/Awesome-LLM", "capability", "P1", "Curated list of LLM resources", [], ["awesome-list"]),
+    ("luo-junyu/Awesome-Agent-Papers", "capability", "P2", "LLM Agent survey papers", [], ["awesome-list"]),
+    ("kyrolabs/awesome-agents", "capability", "P2", "Awesome list of AI Agents", [], ["awesome-list"]),
+    ("jim-schwoebel/awesome_ai_agents", "capability", "P2", "1500+ AI agent resources", [], ["awesome-list"]),
+    ("caramaschiHG/awesome-ai-agents-2026", "capability", "P2", "AI agents list 2026", [], ["awesome-list"]),
 
-    # Awesome List
-    ("Shubhamsaboo/awesome-llm-apps", "awesome-list", "P0", "100+ AI Agent & RAG apps"),
-    ("e2b-dev/awesome-ai-agents", "awesome-list", "P1", "List of AI autonomous agents"),
-    ("Hannibal046/Awesome-LLM", "awesome-list", "P1", "Curated list of LLM resources"),
-    ("luo-junyu/Awesome-Agent-Papers", "awesome-list", "P2", "LLM Agent survey papers"),
-    ("kyrolabs/awesome-agents", "awesome-list", "P2", "Awesome list of AI Agents"),
-    ("jim-schwoebel/awesome_ai_agents", "awesome-list", "P2", "1500+ AI agent resources"),
-    ("caramaschiHG/awesome-ai-agents-2026", "awesome-list", "P2", "AI agents list 2026"),
+    # === Learning ===
+    ("microsoft/ai-agents-for-beginners", "capability", "P0", "12 Lessons for AI Agents", [], ["learning"]),
+    ("karpathy/nanochat", "capability", "P0", "Best ChatGPT that $100 can buy", [], ["learning"]),
+    ("karpathy/nn-zero-to-hero", "capability", "P0", "Neural Networks: Zero to Hero", [], ["learning"]),
+    ("NirDiamant/GenAI_Agents", "capability", "P0", "50+ GenAI Agent tutorials", [], ["learning"]),
+    ("ashishps1/learn-ai-engineering", "capability", "P1", "Learn AI from scratch", [], ["learning"]),
+    ("ed-donner/agents", "capability", "P1", "Complete Agentic AI Engineering Course", [], ["learning"]),
+    ("coleam00/ai-agents-masterclass", "capability", "P2", "AI Agents Masterclass", [], ["learning"]),
 
-    # Learning
-    ("microsoft/ai-agents-for-beginners", "learning", "P0", "12 Lessons for AI Agents"),
-    ("NirDiamant/GenAI_Agents", "learning", "P0", "50+ GenAI Agent tutorials"),
-    ("ashishps1/learn-ai-engineering", "learning", "P1", "Learn AI from scratch"),
-    ("ed-donner/agents", "learning", "P1", "Complete Agentic AI Engineering Course"),
-    ("coleam00/ai-agents-masterclass", "learning", "P2", "AI Agents Masterclass"),
+    # === Prompts & Resources ===
+    ("x1xhlol/system-prompts-and-models-of-ai-tools", "capability", "P0", "System prompts collection", [], ["cookbook"]),
 
-    # Educational
-    ("karpathy/nanochat", "educational", "P0", "Best ChatGPT that $100 can buy"),
-    ("karpathy/nn-zero-to-hero", "educational", "P0", "Neural Networks: Zero to Hero"),
+    # === Industry: Healthcare ===
+    ("AgenticHealthAI/Awesome-AI-Agents-for-Healthcare", "industry", "P1", "Healthcare AI Agent resources", ["healthcare"], []),
+    ("mims-harvard/TxAgent", "industry", "P1", "AI agent for therapeutic reasoning", ["healthcare"], []),
+    ("yhzhu99/HealthFlow", "industry", "P1", "Self-Evolving AI Agent for Healthcare Research", ["healthcare"], []),
+    ("stanfordmlgroup/MedAgentBench", "industry", "P1", "Virtual EHR Environment for Medical LLM Agents", ["healthcare"], []),
+    ("gersteinlab/medagents-benchmark", "industry", "P2", "Medical Reasoning Benchmark", ["healthcare"], []),
+    ("samuelschmidgall/agentclinic", "industry", "P2", "Multimodal Agent Benchmark for Clinical AI", ["healthcare"], []),
 
-    # Prompts & Resources
-    ("x1xhlol/system-prompts-and-models-of-ai-tools", "prompts", "P0", "System prompts collection"),
+    # === Industry: Multi-industry ===
+    ("ashishpatel26/500-AI-Agents-Projects", "industry", "P0", "500+ AI agent use cases across industries", ["healthcare", "finance", "education", "retail", "manufacturing"], []),
+    ("msitarzewski/agency-agents", "industry", "P1", "51 AI Specialist Agents (Engineering/Design/Marketing/PM/QA/Support)", ["marketing", "sales", "customer-service", "human-resources"], []),
 ]
 
 def fetch_repo_gh(repo):
@@ -111,6 +121,7 @@ def main():
     parser = argparse.ArgumentParser(description="Fetch GitHub repo data for Agent Knowledge Hub")
     parser.add_argument("--output", default="data/", help="Output directory")
     parser.add_argument("--repos", nargs="*", help="Specific repos to fetch (default: all)")
+    parser.add_argument("--format", choices=["json", "csv", "both"], default="both", help="Output format")
     args = parser.parse_args()
 
     output_dir = Path(args.output)
@@ -121,53 +132,57 @@ def main():
         repos_to_fetch = [r for r in REPOS if r[0] in args.repos]
 
     results = []
-    for i, (repo, cat, pri, desc) in enumerate(repos_to_fetch, 1):
+    for i, (repo, cat, pri, desc, industries, capabilities) in enumerate(repos_to_fetch, 1):
         print(f"[{i}/{len(repos_to_fetch)}] {repo}")
         info = fetch_repo_gh(repo)
         info["category"] = cat
         info["priority"] = pri
         info["description"] = desc
+        info["industries"] = industries
+        info["capabilities"] = capabilities
         if "error" in info:
             print(f"  ERROR: {info['error']}")
         else:
-            print(f"  {info.get('stars', 0)} stars | {info.get('language', 'N/A')}")
+            print(f"  {info.get('stars', 0)} stars | {info.get('language', 'N/A')} | ind:{industries} cap:{capabilities}")
         results.append(info)
 
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-
-    # JSON
-    json_path = output_dir / f"repos_{ts}.json"
-    json_path.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
-
-    # CSV
-    fields = ["full_name", "description", "url", "language", "stars", "forks",
-              "category", "priority", "topics", "updated_at"]
-    csv_path = output_dir / f"repos_{ts}.csv"
-    with open(csv_path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
-        w.writeheader()
-        for r in results:
-            row = {k: r.get(k, "") for k in fields}
-            row["topics"] = ", ".join(row.get("topics", []))
-            w.writerow(row)
-
-    # Also write latest symlink
-    latest_json = output_dir / "repos_latest.json"
-    latest_csv = output_dir / "repos_latest.csv"
-    latest_json.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
-    with open(latest_csv, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
-        w.writeheader()
-        for r in results:
-            row = {k: r.get(k, "") for k in fields}
-            row["topics"] = ", ".join(row.get("topics", []))
-            w.writerow(row)
-
     ok = [r for r in results if "error" not in r]
     total_stars = sum(r.get("stars", 0) for r in ok)
+
+    if args.format in ("json", "both"):
+        json_path = output_dir / f"repos_{ts}.json"
+        json_path.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
+        latest_json = output_dir / "repos_latest.json"
+        latest_json.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"JSON: {json_path}")
+
+    if args.format in ("csv", "both"):
+        fields = ["full_name", "description", "url", "language", "stars", "forks",
+                  "category", "priority", "industries", "capabilities", "topics", "updated_at"]
+        csv_path = output_dir / f"repos_{ts}.csv"
+        with open(csv_path, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=fields)
+            w.writeheader()
+            for r in results:
+                row = {k: r.get(k, "") for k in fields}
+                row["topics"] = ", ".join(row.get("topics", []))
+                row["industries"] = ", ".join(row.get("industries", []))
+                row["capabilities"] = ", ".join(row.get("capabilities", []))
+                w.writerow(row)
+        latest_csv = output_dir / "repos_latest.csv"
+        with open(latest_csv, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=fields)
+            w.writeheader()
+            for r in results:
+                row = {k: r.get(k, "") for k in fields}
+                row["topics"] = ", ".join(row.get("topics", []))
+                row["industries"] = ", ".join(row.get("industries", []))
+                row["capabilities"] = ", ".join(row.get("capabilities", []))
+                w.writerow(row)
+        print(f"CSV:  {csv_path}")
+
     print(f"\nDone. {len(ok)}/{len(results)} repos fetched. {total_stars:,} total stars.")
-    print(f"  JSON: {json_path}")
-    print(f"  CSV:  {csv_path}")
 
 if __name__ == "__main__":
     main()

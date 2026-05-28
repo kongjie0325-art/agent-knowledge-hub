@@ -1,0 +1,394 @@
+{
+  "version": "2.0.0",
+  "updated": "2026-05-28",
+  "description": "Agent Knowledge Hub - 按行业分类的 GitHub 高引用 AI Agent 仓库索引",
+  "total_repos": 0,
+  "total_stars": 0,
+
+  "industries": {
+    "healthcare": {
+      "name": "医疗健康",
+      "name_en": "Healthcare",
+      "description": "AI Agent 在医疗健康领域的应用：诊断辅助、药物研发、健康管理、医学研究",
+      "file": "kb/industry/healthcare.md",
+      "topics": ["medical", "healthcare", "clinical", "diagnosis", "drug-discovery", "ehr", "telemedicine"],
+      "repos": [],
+      "sub_categories": {
+        "diagnosis": "诊断辅助",
+        "drug_discovery": "药物研发",
+        "health_management": "健康管理",
+        "medical_research": "医学研究",
+        "clinical_trials": "临床试验",
+        "medical_imaging": "医学影像"
+      }
+    },
+    "finance": {
+      "name": "金融",
+      "name_en": "Finance",
+      "description": "AI Agent 在金融领域的应用：量化交易、风控、合规、智能投顾、保险",
+      "file": "kb/industry/finance.md",
+      "topics": ["finance", "trading", "risk", "compliance", "insurance", "fintech", "banking"],
+      "repos": [],
+      "sub_categories": {
+        "trading": "量化交易",
+        "risk_management": "风控管理",
+        "compliance": "合规审计",
+        "wealth_management": "智能投顾",
+        "insurance": "保险科技"
+      }
+    },
+    "legal": {
+      "name": "法律",
+      "name_en": "Legal",
+      "description": "AI Agent 在法律领域的应用：合同审查、法律研究、合规检查、案件分析",
+      "file": "kb/industry/legal.md",
+      "topics": ["legal", "contract", "compliance", "law", "regulation"],
+      "repos": [],
+      "sub_categories": {
+        "contract_review": "合同审查",
+        "legal_research": "法律研究",
+        "compliance_check": "合规检查",
+        "case_analysis": "案件分析"
+      }
+    },
+    "education": {
+      "name": "教育",
+      "name_en": "Education",
+      "description": "AI Agent 在教育领域的应用：个性化学习、智能辅导、内容生成、评估",
+      "file": "kb/industry/education.md",
+      "topics": ["education", "learning", "tutoring", "course", "student"],
+      "repos": [],
+      "sub_categories": {
+        "personalized_learning": "个性化学习",
+        "intelligent_tutoring": "智能辅导",
+        "content_generation": "内容生成",
+        "assessment": "评估系统"
+      }
+    },
+    "manufacturing": {
+      "name": "制造业",
+      "name_en": "Manufacturing",
+      "description": "AI Agent 在制造业的应用：质量控制、供应链优化、预测性维护、生产调度",
+      "file": "kb/industry/manufacturing.md",
+      "topics": ["manufacturing", "quality", "supply-chain", "maintenance", "industrial"],
+      "repos": [],
+      "sub_categories": {
+        "quality_control": "质量控制",
+        "supply_chain": "供应链优化",
+        "predictive_maintenance": "预测性维护",
+        "production_scheduling": "生产调度"
+      }
+    },
+    "retail": {
+      "name": "零售电商",
+      "name_en": "Retail & E-commerce",
+      "description": "AI Agent 在零售电商的应用：推荐系统、库存管理、客户服务、价格优化",
+      "file": "kb/industry/retail.md",
+      "topics": ["retail", "ecommerce", "recommendation", "inventory", "pricing"],
+      "repos": [],
+      "sub_categories": {
+        "recommendation": "推荐系统",
+        "inventory_management": "库存管理",
+        "price_optimization": "价格优化",
+        "customer_insight": "客户洞察"
+      }
+    },
+    "marketing": {
+      "name": "营销",
+      "name_en": "Marketing",
+      "description": "AI Agent 在营销领域的应用：内容创作、广告投放、社媒管理、品牌监控",
+      "file": "kb/industry/marketing.md",
+      "topics": ["marketing", "content", "advertising", "social-media", "brand"],
+      "repos": [],
+      "sub_categories": {
+        "content_creation": "内容创作",
+        "ad_optimization": "广告投放",
+        "social_media": "社媒管理",
+        "brand_monitoring": "品牌监控"
+      }
+    },
+    "sales": {
+      "name": "销售",
+      "name_en": "Sales",
+      "description": "AI Agent 在销售领域的应用：线索生成、CRM 自动化、销售预测、外呼",
+      "file": "kb/industry/sales.md",
+      "topics": ["sales", "crm", "lead-generation", "forecasting", "outbound"],
+      "repos": [],
+      "sub_categories": {
+        "lead_generation": "线索生成",
+        "crm_automation": "CRM 自动化",
+        "sales_forecasting": "销售预测",
+        "outbound_calling": "智能外呼"
+      }
+    },
+    "customer_service": {
+      "name": "客户服务",
+      "name_en": "Customer Service",
+      "description": "AI Agent 在客服领域的应用：智能客服、工单处理、知识库、多语言支持",
+      "file": "kb/industry/customer-service.md",
+      "topics": ["customer-service", "support", "ticketing", "chatbot", "knowledge-base"],
+      "repos": [],
+      "sub_categories": {
+        "intelligent_chatbot": "智能客服",
+        "ticket_routing": "工单路由",
+        "knowledge_management": "知识库管理",
+        "multilingual": "多语言支持"
+      }
+    },
+    "security": {
+      "name": "安全",
+      "name_en": "Security & Compliance",
+      "description": "AI Agent 在安全领域的应用：威胁检测、漏洞扫描、合规审计、身份认证",
+      "file": "kb/industry/security.md",
+      "topics": ["security", "threat", "vulnerability", "compliance", "identity"],
+      "repos": [],
+      "sub_categories": {
+        "threat_detection": "威胁检测",
+        "vulnerability_scanning": "漏洞扫描",
+        "compliance_audit": "合规审计",
+        "identity_management": "身份认证"
+      }
+    },
+    "agriculture": {
+      "name": "农业",
+      "name_en": "Agriculture",
+      "description": "AI Agent 在农业领域的应用：精准农业、作物监测、病虫害识别、供应链",
+      "file": "kb/industry/agriculture.md",
+      "topics": ["agriculture", "farming", "crop", "pest", "precision"],
+      "repos": [],
+      "sub_categories": {
+        "precision_agriculture": "精准农业",
+        "crop_monitoring": "作物监测",
+        "pest_detection": "病虫害识别",
+        "agri_supply_chain": "农业供应链"
+      }
+    },
+    "energy": {
+      "name": "能源",
+      "name_en": "Energy",
+      "description": "AI Agent 在能源领域的应用：智能电网、能源优化、碳排放管理、预测性维护",
+      "file": "kb/industry/energy.md",
+      "topics": ["energy", "grid", "carbon", "renewable", "optimization"],
+      "repos": [],
+      "sub_categories": {
+        "smart_grid": "智能电网",
+        "energy_optimization": "能源优化",
+        "carbon_management": "碳排放管理",
+        "renewable_energy": "可再生能源"
+      }
+    },
+    "government": {
+      "name": "政府公共",
+      "name_en": "Government & Public",
+      "description": "AI Agent 在政府公共领域的应用：政务服务、公共安全、城市规划、税务",
+      "file": "kb/industry/government.md",
+      "topics": ["government", "public", "safety", "urban", "tax"],
+      "repos": [],
+      "sub_categories": {
+        "government_services": "政务服务",
+        "public_safety": "公共安全",
+        "urban_planning": "城市规划",
+        "tax_compliance": "税务合规"
+      }
+    },
+    "research": {
+      "name": "科研",
+      "name_en": "Scientific Research",
+      "description": "AI Agent 在科研领域的应用：文献综述、实验设计、数据分析、论文写作",
+      "file": "kb/industry/research.md",
+      "topics": ["research", "science", "paper", "experiment", "data-analysis"],
+      "repos": [],
+      "sub_categories": {
+        "literature_review": "文献综述",
+        "experiment_design": "实验设计",
+        "data_analysis": "数据分析",
+        "paper_writing": "论文写作"
+      }
+    },
+    "real_estate": {
+      "name": "房地产",
+      "name_en": "Real Estate",
+      "description": "AI Agent 在房地产领域的应用：房产评估、市场分析、智能客服、物业管理",
+      "file": "kb/industry/real-estate.md",
+      "topics": ["real-estate", "property", "valuation", "market", "management"],
+      "repos": [],
+      "sub_categories": {
+        "property_valuation": "房产评估",
+        "market_analysis": "市场分析",
+        "property_management": "物业管理",
+        "virtual_tour": "虚拟看房"
+      }
+    },
+    "entertainment": {
+      "name": "娱乐媒体",
+      "name_en": "Entertainment & Media",
+      "description": "AI Agent 在娱乐媒体领域的应用：内容生成、推荐、版权管理、互动体验",
+      "file": "kb/industry/entertainment.md",
+      "topics": ["entertainment", "media", "content", "recommendation", "copyright"],
+      "repos": [],
+      "sub_categories": {
+        "content_generation": "内容生成",
+        "recommendation": "内容推荐",
+        "copyright_management": "版权管理",
+        "interactive_experience": "互动体验"
+      }
+    },
+    "logistics": {
+      "name": "物流运输",
+      "name_en": "Logistics & Transportation",
+      "description": "AI Agent 在物流运输领域的应用：路径优化、仓储管理、车队管理、最后一公里",
+      "file": "kb/industry/logistics.md",
+      "topics": ["logistics", "transportation", "warehouse", "routing", "fleet"],
+      "repos": [],
+      "sub_categories": {
+        "route_optimization": "路径优化",
+        "warehouse_management": "仓储管理",
+        "fleet_management": "车队管理",
+        "last_mile": "最后一公里"
+      }
+    },
+    "human_resources": {
+      "name": "人力资源",
+      "name_en": "Human Resources",
+      "description": "AI Agent 在 HR 领域的应用：招聘、培训、绩效评估、员工服务",
+      "file": "kb/industry/human-resources.md",
+      "topics": ["hr", "recruitment", "training", "performance", "employee"],
+      "repos": [],
+      "sub_categories": {
+        "recruitment": "智能招聘",
+        "training": "培训发展",
+        "performance_evaluation": "绩效评估",
+        "employee_service": "员工服务"
+      }
+    },
+    "insurance": {
+      "name": "保险",
+      "name_en": "Insurance",
+      "description": "AI Agent 在保险领域的应用：理赔处理、风险评估、保单管理、欺诈检测",
+      "file": "kb/industry/insurance.md",
+      "topics": ["insurance", "claim", "risk", "policy", "fraud"],
+      "repos": [],
+      "sub_categories": {
+        "claim_processing": "理赔处理",
+        "risk_assessment": "风险评估",
+        "policy_management": "保单管理",
+        "fraud_detection": "欺诈检测"
+      }
+    }
+  },
+
+  "capabilities": {
+    "agent-framework": {
+      "name": "Agent 框架",
+      "name_en": "Agent Framework",
+      "description": "构建 AI Agent 的核心框架和工具链",
+      "file": "kb/capability/agent-framework.md",
+      "topics": ["agent", "framework", "llm", "multi-agent"],
+      "repos": []
+    },
+    "agent-platform": {
+      "name": "Agent 平台",
+      "name_en": "Agent Platform",
+      "description": "生产级 Agent 开发和部署平台",
+      "file": "kb/capability/agent-platform.md",
+      "topics": ["platform", "workflow", "deployment"],
+      "repos": []
+    },
+    "coding-agent": {
+      "name": "编码 Agent",
+      "name_en": "Coding Agent",
+      "description": "AI 编程助手和自主编码 Agent",
+      "file": "kb/capability/coding-agent.md",
+      "topics": ["coding", "developer", "autonomous"],
+      "repos": []
+    },
+    "inference": {
+      "name": "推理部署",
+      "name_en": "Inference & Deployment",
+      "description": "LLM 推理优化和部署方案",
+      "file": "kb/capability/inference.md",
+      "topics": ["inference", "deployment", "serving", "optimization"],
+      "repos": []
+    },
+    "model": {
+      "name": "基础模型",
+      "name_en": "Foundation Model",
+      "description": "开源和闭源基础大模型",
+      "file": "kb/capability/model.md",
+      "topics": ["model", "llm", "foundation"],
+      "repos": []
+    },
+    "mcp": {
+      "name": "MCP 生态",
+      "name_en": "MCP Ecosystem",
+      "description": "Model Context Protocol 相关工具和生态",
+      "file": "kb/capability/mcp.md",
+      "topics": ["mcp", "protocol", "tool", "integration"],
+      "repos": []
+    },
+    "ui-frontend": {
+      "name": "UI/前端",
+      "name_en": "UI & Frontend",
+      "description": "AI Agent 用户界面和前端工具",
+      "file": "kb/capability/ui-frontend.md",
+      "topics": ["ui", "frontend", "interface", "chat"],
+      "repos": []
+    },
+    "awesome-list": {
+      "name": "Awesome List",
+      "name_en": "Awesome Lists",
+      "description": "AI Agent 相关的精选资源列表",
+      "file": "kb/capability/awesome-list.md",
+      "topics": ["awesome", "list", "curated", "resources"],
+      "repos": []
+    },
+    "cookbook": {
+      "name": "Cookbook",
+      "name_en": "Cookbooks",
+      "description": "各大模型的官方示例和指南",
+      "file": "kb/capability/cookbook.md",
+      "topics": ["cookbook", "examples", "guide", "tutorial"],
+      "repos": []
+    },
+    "learning": {
+      "name": "学习资源",
+      "name_en": "Learning Resources",
+      "description": "AI Agent 学习教程和课程",
+      "file": "kb/capability/learning.md",
+      "topics": ["learning", "tutorial", "course", "education"],
+      "repos": []
+    }
+  },
+
+  "hermes_api": {
+    "description": "Hermes Agent 调用此知识库的 API 接口说明",
+    "endpoints": {
+      "list_industries": "GET /api/v1/industries - 列出所有行业分类",
+      "get_industry": "GET /api/v1/industry/{industry_id} - 获取指定行业的仓库列表",
+      "search": "GET /api/v1/search?q={query}&industry={industry}&capability={capability} - 搜索仓库",
+      "get_repo": "GET /api/v1/repo/{owner}/{name} - 获取指定仓库详情",
+      "list_capabilities": "GET /api/v1/capabilities - 列出所有能力分类",
+      "stats": "GET /api/v1/stats - 获取统计信息"
+    },
+    "local_access": {
+      "description": "本地文件访问方式（Hermes 直接读取）",
+      "index_file": "api/index.json",
+      "industry_files": "kb/industry/{industry_id}.md",
+      "capability_files": "kb/capability/{capability_id}.md",
+      "data_files": "data/repos_latest.json"
+    },
+    "query_examples": [
+      "查找医疗健康领域的高引用 AI Agent 仓库",
+      "列出所有 Agent Framework 类型的仓库",
+      "搜索金融风控相关的开源项目",
+      "获取 ollama/ollama 的详细信息"
+    ]
+  },
+
+  "metadata": {
+    "maintainer": "Hermes Agent",
+    "license": "MIT",
+    "repository": "https://github.com/kongjie0325-art/agent-knowledge-hub",
+    "contribution_guide": "欢迎提交 PR 添加新仓库或行业分类"
+  }
+}
