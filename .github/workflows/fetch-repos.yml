@@ -1,0 +1,35 @@
+name: Fetch and Update Repo Data
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # 每周日 UTC 0:00
+  workflow_dispatch:       # 手动触发
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pyyaml
+
+      - name: Fetch repo data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/fetch_repos.py --output data/
+
+      - name: Generate docs
+        run: python3 scripts/generate_docs.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/ kb/ memory/ platform/ meta/
+          git diff --staged --quiet || git commit -m "chore: update repo data [$(date -u +%Y-%m-%d)]"
+          git push
