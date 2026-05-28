@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "updated": "2026-05-28",
   "description": "Agent Knowledge Hub - 按行业分类的 GitHub 高引用 AI Agent 仓库索引",
-  "total_repos": "100+",
+  "total_repos": "150+",
   "total_stars": "2,710,327+",
   "industries": {
     "healthcare": {
@@ -255,21 +255,22 @@
     "government": {
       "name": "政府公共",
       "name_en": "Government & Public",
-      "description": "AI Agent 在政府公共领域的应用：政务服务、公共安全、城市规划、税务",
+      "description": "AI Agent 在政府公共领域的应用：政务服务、公共安全、政策分析、城市管理",
       "file": "kb/industry/government.md",
       "topics": [
         "government",
         "public",
-        "safety",
-        "urban",
-        "tax"
+        "policy",
+        "smart-city"
       ],
       "repos": [],
       "sub_categories": {
-        "government_services": "政务服务",
-        "public_safety": "公共安全",
-        "urban_planning": "城市规划",
-        "tax_compliance": "税务合规"
+        "services": "政务服务",
+        "safety": "公共安全",
+        "policy": "政策分析",
+        "city": "城市管理",
+        "tax": "智慧税务",
+        "data": "数据开放"
       }
     },
     "research": {
@@ -828,6 +829,48 @@
         "customer_service": "客户服务",
         "content_generation": "内容生成",
         "recommendation": "推荐系统"
+      }
+    },
+    "pharmaceutical": {
+      "name": "制药",
+      "name_en": "Pharmaceutical",
+      "description": "AI Agent 在制药领域的应用：药物发现、临床试验、药物安全、生产质量、法规事务",
+      "file": "kb/industry/pharmaceutical.md",
+      "topics": [
+        "pharma",
+        "drug-discovery",
+        "clinical-trial",
+        "gmp"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "drug_discovery": "药物发现",
+        "clinical_trials": "临床试验",
+        "drug_safety": "药物安全",
+        "quality": "生产质量",
+        "regulatory": "法规事务",
+        "medical_info": "医学信息"
+      }
+    },
+    "customer-service": {
+      "name": "客户服务",
+      "name_en": "Customer Service",
+      "description": "AI Agent 在客户服务领域的应用：智能客服、工单管理、客户体验、全渠道服务",
+      "file": "kb/industry/customer-service.md",
+      "topics": [
+        "customer-service",
+        "chatbot",
+        "ticketing",
+        "crm"
+      ],
+      "repos": [],
+      "sub_categories": {
+        "chatbot": "智能客服",
+        "ticketing": "工单管理",
+        "analytics": "客户体验",
+        "omnichannel": "全渠道服务",
+        "knowledge": "知识库管理",
+        "enablement": "客服赋能"
       }
     }
   },
