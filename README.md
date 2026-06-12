@@ -1,146 +1,90 @@
 # Agent Knowledge Hub
 
-> 基于 Karpathy LLM Wiki / 知识编译路线的 Agent 优先知识库目录。
-> 按**各行各业**分类，支持 Hermes Agent 查询和扩展。
+> 基于 Karpathy LLM Wiki / 知识编译路线的 Agent 优先知识库。
+> 四层架构：Meta（元框架）→ KB（知识库）→ Memory（记忆）→ Platform（平台）。
 
-## 结构
+## 架构
 
 ```
-api/                    Hermes 可查询的 JSON 索引
-  index.json            主索引（行业 + 能力 + API 说明）
-
-kb/                    知识库
-  industry/            按行业分类（18 个行业）
-    healthcare.md      医疗健康
-    finance.md         金融
-    legal.md           法律
-    education.md       教育
-    manufacturing.md   制造业
-    retail.md          零售电商
-    marketing.md       营销
-    sales.md           销售
-    customer-service.md 客户服务
-    security.md        安全合规
-    agriculture.md     农业
-    energy.md          能源
-    government.md      政府公共
-    research.md        科研
-    real-estate.md     房地产
-    entertainment.md   娱乐媒体
-    logistics.md       物流运输
-    human-resources.md 人力资源
-    insurance.md       保险
-
-  capability/          按能力分类（10 个能力域）
-    agent-framework.md Agent 框架
-    agent-platform.md  Agent 平台
-    coding-agent.md    编码 Agent
-    inference.md       推理部署
-    model.md           基础模型
-    mcp.md             MCP 生态
-    ui-frontend.md     UI/前端
-    awesome-list.md    Awesome List
-    cookbook.md        Cookbook
-    learning.md        学习资源
-
-data/                  结构化数据
-  repos_latest.json    最新仓库数据（JSON）
-  repos_latest.csv     最新仓库数据（CSV）
-
-scripts/               自动化脚本
-  fetch_repos.py       仓库数据拉取
-  generate_docs.py     文档生成
+agent-knowledge-hub/
+├── meta/           ← 元框架：分类体系、方法论、知识编译理论
+├── kb/             ← 知识库：按行业(36) × 能力(10) 分类的深度知识
+├── memory/         ← 记忆层：Agent 记忆系统、时序知识图谱
+├── platform/       ← 平台层：知识库工具、部署方案、基础设施
+├── raw/            ← 原始资料索引（Karpathy Wiki 架构）
+├── wiki/           ← 编译知识文章（kb/ 的结构化编译版本）
+│   ├── index.md    ← 全局索引
+│   ├── log.md      ← 操作日志
+│   ├── industry/   ← 36篇行业编译文章
+│   └── capability/  ← 10篇能力域编译文章
+├── references/     ← Karpathy Wiki 模板
+├── examples/       ← 示例文章
+├── api/            ← Hermes 可查询的 JSON 索引
+├── data/           ← 结构化数据（47+ GitHub 仓库）
+└── scripts/        ← 自动化脚本
 ```
 
-## Hermes 调用方式
+## 四层架构
 
-### 1. 读取索引
-```bash
-# 查看所有行业分类
-cat api/index.json | jq '.industries | keys'
+| 层 | 目录 | 内容 | 回答的问题 |
+|----|------|------|-----------|
+| **Meta** | `meta/` | 知识管理方法论、分类体系、知识图谱 Schema | "怎么组织知识？" |
+| **KB** | `kb/` | 36个行业 + 10个能力域的知识编译 | "这个行业/技术用什么 AI？" |
+| **Memory** | `memory/` | Agent 记忆系统对比、时序知识图谱方案 | "Agent 怎么记住知识？" |
+| **Platform** | `platform/` | 知识库平台对比、部署方案、工具链 | "用什么工具管理知识？" |
 
-# 查看指定行业
-cat api/index.json | jq '.industries.healthcare'
+## Karpathy LLM Wiki 工作流
 
-# 查看所有能力分类
-cat api/index.json | jq '.capabilities | keys'
-```
+基于 [Astro-Han/karpathy-llm-wiki](https://github.com/Astro-Han/karpathy-llm-wiki) 的核心理念：
 
-### 2. 查询仓库数据
-```bash
-# 按 Stars 排序查看 Top 10
-cat data/repos_latest.json | jq 'sort_by(.stars) | reverse | .[0:10]'
+1. **Ingest**：采集原始资料 → 存入 `raw/`
+2. **Compile**：编译为结构化知识 → 存入 `wiki/`
+3. **Query**：Agent 查询 wiki/，带引用回答
+4. **Lint**：检查索引完整性、交叉引用
 
-# 按分类筛选
-cat data/repos_latest.json | jq '.[] | select(.category == "agent-framework")'
-```
+详细工作流见 [SKILL.md](SKILL.md)。
 
-### 3. 扩展新仓库
-在 `data/repos_latest.json` 中添加新仓库，然后运行：
-```bash
-python3 scripts/generate_docs.py  # 自动更新各分类文档
-```
+## 行业分类（36个）
 
-## 行业分类（18 个）
+healthcare, finance, legal, education, manufacturing, retail, marketing, sales, customer-service, security, agriculture, energy, government, research, real-estate, entertainment, logistics, human-resources, insurance, chemistry, biology, materials-science, environmental-science, computer-science, software-engineering, web-development, network-engineering, mechanical-engineering, electrical-engineering, chemical-engineering, civil-engineering, aerospace, automotive, food-beverage, textile-fashion, tourism-hospitality, sports-fitness, military-defense, mining-metallurgy, information-engineering, pharmaceutical
 
-| 行业 | 英文 | 文件 |
-|------|------|------|
-| 医疗健康 | Healthcare | `kb/industry/healthcare.md` |
-| 金融 | Finance | `kb/industry/finance.md` |
-| 法律 | Legal | `kb/industry/legal.md` |
-| 教育 | Education | `kb/industry/education.md` |
-| 制造业 | Manufacturing | `kb/industry/manufacturing.md` |
-| 零售电商 | Retail | `kb/industry/retail.md` |
-| 营销 | Marketing | `kb/industry/marketing.md` |
-| 销售 | Sales | `kb/industry/sales.md` |
-| 客户服务 | Customer Service | `kb/industry/customer-service.md` |
-| 安全合规 | Security | `kb/industry/security.md` |
-| 农业 | Agriculture | `kb/industry/agriculture.md` |
-| 能源 | Energy | `kb/industry/energy.md` |
-| 政府公共 | Government | `kb/industry/government.md` |
-| 科研 | Research | `kb/industry/research.md` |
-| 房地产 | Real Estate | `kb/industry/real-estate.md` |
-| 娱乐媒体 | Entertainment | `kb/industry/entertainment.md` |
-| 物流运输 | Logistics | `kb/industry/logistics.md` |
-| 人力资源 | HR | `kb/industry/human-resources.md` |
-| 保险 | Insurance | `kb/industry/insurance.md` |
+## 能力分类（10个）
 
-## 能力分类（10 个）
-
-| 能力 | 英文 | 文件 |
-|------|------|------|
-| Agent 框架 | Agent Framework | `kb/capability/agent-framework.md` |
-| Agent 平台 | Agent Platform | `kb/capability/agent-platform.md` |
-| 编码 Agent | Coding Agent | `kb/capability/coding-agent.md` |
-| 推理部署 | Inference | `kb/capability/inference.md` |
-| 基础模型 | Foundation Model | `kb/capability/model.md` |
-| MCP 生态 | MCP Ecosystem | `kb/capability/mcp.md` |
-| UI/前端 | UI & Frontend | `kb/capability/ui-frontend.md` |
-| Awesome List | Awesome Lists | `kb/capability/awesome-list.md` |
-| Cookbook | Cookbooks | `kb/capability/cookbook.md` |
-| 学习资源 | Learning | `kb/capability/learning.md` |
+agent-framework, agent-platform, coding-agent, inference, model, mcp, ui-frontend, awesome-list, cookbook, learning
 
 ## 统计数据
 
-- **总仓库数**: 47+
-- **总 Stars**: 2,700,000+
-- **行业覆盖**: 18 个
-- **能力覆盖**: 10 个
+| 指标 | 数据 |
+|------|------|
+| 行业文档 | 40 篇（3,904 行） |
+| 能力文档 | 10 篇（1,164 行） |
+| Wiki 编译文章 | 50 篇（5,661 行） |
+| Raw 源材料 | 38 篇（1,416 行） |
+| GitHub 仓库索引 | 47+ |
+| 总 Stars | 2,700,000+ |
+| 总文件 | 316 |
+| 总大小 | 2.5MB |
 
-## 扩展指南
+## Hermes 调用方式
 
-### 添加新行业
-1. 在 `kb/industry/` 创建 `{industry}.md`
-2. 在 `api/index.json` 的 `industries` 中添加条目
-3. 在 `data/repos_latest.json` 中为新仓库添加 `"industry": "{industry}"` 字段
+### 查询行业知识
+```
+read_file("kb/industry/healthcare.md")  # 医疗健康 AI Agent 全景
+read_file("kb/capability/mcp.md")       # MCP 生态深度分析
+```
 
-### 添加新能力分类
-1. 在 `kb/capability/` 创建 `{capability}.md`
-2. 在 `api/index.json` 的 `capabilities` 中添加条目
+### 查询元框架
+```
+read_file("meta/README.md")             # 知识管理方法论
+read_file("memory/README.md")           # Agent 记忆系统对比
+read_file("platform/README.md")         # 知识库平台选型
+```
 
-### 添加新仓库
-1. 在 `data/repos_latest.json` 中添加仓库信息
-2. 运行 `python3 scripts/generate_docs.py` 自动分发到对应分类
+### 知识编译工作流
+```
+read_file("SKILL.md")                   # 完整工作流定义
+read_file("wiki/index.md")              # 编译知识索引
+```
 
 ## License
 

@@ -1,9 +1,13 @@
 {
-  "version": "2.0.0",
-  "updated": "2026-05-28",
-  "description": "Agent Knowledge Hub - 按行业分类的 GitHub 高引用 AI Agent 仓库索引",
-  "total_repos": "150+",
-  "total_stars": "2,710,327+",
+  "version": "3.0.0",
+  "updated": "2026-06-12",
+  "description": "Agent Knowledge Hub - 四层架构（Meta→KB→Memory→Platform）Agent 优先知识库，基于 Karpathy LLM Wiki 知识编译路线",
+  "architecture": {
+    "layers": ["meta", "kb", "memory", "platform", "raw", "wiki"],
+    "description": "Meta（元框架）→ KB（知识库）→ Memory（记忆）→ Platform（平台）+ raw/wiki（Karpathy 编译工作流）"
+  },
+  "total_repos": "47+",
+  "total_stars": "2,700,000+",
   "industries": {
     "healthcare": {
       "name": "医疗健康",
